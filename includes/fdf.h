@@ -6,7 +6,7 @@
 /*   By: jcanteau <jcanteau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/04 14:26:35 by jcanteau          #+#    #+#             */
-/*   Updated: 2019/10/04 16:11:47 by jcanteau         ###   ########.fr       */
+/*   Updated: 2019/10/04 16:16:29 by jcanteau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,5 +26,6 @@ int		ft_error(void);
 int		ft_usage(void);
 int		ft_fdf(char *av);
 int		ft_mlx(/*t_point <name>*/);
+int		ft_check_file(char *av);
 
 #endif

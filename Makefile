@@ -6,7 +6,7 @@
 #    By: jcanteau <jcanteau@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/02 11:22:48 by jcanteau          #+#    #+#              #
-#    Updated: 2019/10/04 15:49:40 by jcanteau         ###   ########.fr        #
+#    Updated: 2019/10/04 16:13:24 by jcanteau         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,6 +23,7 @@ SRC_NAME += parse.c
 SRC_NAME += fdf.c
 SRC_NAME += mlx.c
 SRC_NAME += bresenham.c
+SRC_NAME += check.c
 
 OBJ_NAME = $(SRC_NAME:.c=.o)
 

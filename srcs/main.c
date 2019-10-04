@@ -6,7 +6,7 @@
 /*   By: jcanteau <jcanteau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/04 14:53:23 by jcanteau          #+#    #+#             */
-/*   Updated: 2019/10/04 16:20:15 by jcanteau         ###   ########.fr       */
+/*   Updated: 2019/10/04 16:47:52 by jcanteau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,6 @@ int			main(int ac, char **av)
         return (ft_usage());
     if ((ft_check_file(av[1])) == -1)
         return (ft_error());
-    //if file is good, start fdf
+    ft_fdf(av[1]);
     return (0);
 }

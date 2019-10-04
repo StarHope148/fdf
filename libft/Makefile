@@ -6,7 +6,7 @@
 #    By: jcanteau <jcanteau@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/30 13:08:57 by jcanteau          #+#    #+#              #
-#    Updated: 2019/10/04 15:53:12 by jcanteau         ###   ########.fr        #
+#    Updated: 2019/10/04 16:31:13 by jcanteau         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -93,7 +93,7 @@ $(OBJ): %.o: %.c $(HEAD)
 
 clean:
 	$(RM) $(OBJ)
-	echo "\033[32mOBJS files deleted \033[0m"
+	echo "\033[32mOBJS files of $(NAME) deleted \033[0m"
 
 fclean: clean
 	$(RM) $(NAME)

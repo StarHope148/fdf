@@ -6,7 +6,7 @@
 #    By: jcanteau <jcanteau@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/02 11:22:48 by jcanteau          #+#    #+#              #
-#    Updated: 2019/10/04 16:13:24 by jcanteau         ###   ########.fr        #
+#    Updated: 2019/10/04 16:29:49 by jcanteau         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,6 +42,7 @@ $(CC) = gcc
 all: $(NAME)
 
 $(NAME): $(OBJ)
+	make -C libft/.
 	$(CC) $(MLXINC) $(OBJ) $(MLXLIB) $(FRAMEWORK) $(LIB) -o $(NAME)
 
 $(OBJ_PATH)%.o: $(SRC_PATH)%.c
@@ -49,6 +50,7 @@ $(OBJ_PATH)%.o: $(SRC_PATH)%.c
 	$(CC) $(CPPFLAGS) -o $@ -c $<
 
 clean:
+	make clean -C libft/.
 	$(RM) -rf $(OBJ_PATH)
 
 fclean: clean

@@ -6,7 +6,7 @@
 /*   By: jcanteau <jcanteau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/04 14:26:35 by jcanteau          #+#    #+#             */
-/*   Updated: 2019/10/04 16:16:29 by jcanteau         ###   ########.fr       */
+/*   Updated: 2019/10/04 16:25:37 by jcanteau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,14 @@
 
 #define WIN_W 800
 #define WIN_H 600
+
+typedef struct		s_vertex
+{
+	int		x;
+	int		y;
+	int		z;
+	int		color;
+}					t_vertex;
 
 int		ft_error(void);
 int		ft_usage(void);

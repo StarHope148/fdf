@@ -6,17 +6,14 @@
 #    By: jcanteau <jcanteau@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/02 11:22:48 by jcanteau          #+#    #+#              #
-#    Updated: 2019/10/04 16:29:49 by jcanteau         ###   ########.fr        #
+#    Updated: 2019/10/04 18:03:33 by jcanteau         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = fdf
 
-HEAD = fdf.h
-
-SRC_PATH = ./srcs/
-OBJ_PATH = ./objs/
-INC_PATH = ./includes/
+INC_NAME += fdf.h
+INC_NAME += keys_define.h
 
 SRC_NAME += main.c
 SRC_NAME += parse.c
@@ -27,8 +24,13 @@ SRC_NAME += check.c
 
 OBJ_NAME = $(SRC_NAME:.c=.o)
 
-SRC = $(addprefix $(SRC_PATH)/,$(SRC_NAME))
+SRC_PATH = ./srcs/
+OBJ_PATH = ./objs/
+INC_PATH = ./includes/
+
+SRC = $(addprefix $(SRC_PATH),$(SRC_NAME))
 OBJ = $(addprefix $(OBJ_PATH), $(OBJ_NAME))
+HEAD = $(addprefix $(INC_PATH), $(INC_NAME))
 
 LIB = ./libft/libft.a
 
@@ -54,8 +56,12 @@ clean:
 	$(RM) -rf $(OBJ_PATH)
 
 fclean: clean
+	make fclean -C libft/.
 	$(RM) $(NAME)
 
 re: fclean all
+
+norm:
+	norminette $(SRC) $(HEAD)
 
 .PHONY: clean fclean re all

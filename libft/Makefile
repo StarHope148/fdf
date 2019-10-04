@@ -6,7 +6,7 @@
 #    By: jcanteau <jcanteau@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/30 13:08:57 by jcanteau          #+#    #+#              #
-#    Updated: 2019/10/04 16:31:13 by jcanteau         ###   ########.fr        #
+#    Updated: 2019/10/04 17:19:08 by jcanteau         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -53,6 +53,7 @@ SRCS +=	ft_strequ.c
 SRCS +=	ft_strnequ.c
 SRCS +=	ft_strsub.c
 SRCS +=	ft_strjoin.c
+SRCS += ft_strjoinfree.c
 SRCS +=	ft_strtrim.c
 SRCS +=	ft_strsplit.c
 SRCS +=	ft_itoa.c

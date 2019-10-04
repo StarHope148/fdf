@@ -6,7 +6,7 @@
 /*   By: jcanteau <jcanteau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/04 14:26:35 by jcanteau          #+#    #+#             */
-/*   Updated: 2019/10/04 16:25:37 by jcanteau         ###   ########.fr       */
+/*   Updated: 2019/10/04 17:48:35 by jcanteau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,10 @@
 # include <fcntl.h>
 # include <unistd.h>
 # include "../libft/libft.h"
+# include "keys_define.h"
 
-#define WIN_W 800
-#define WIN_H 600
+# define WIN_W 800
+# define WIN_H 600
 
 typedef struct		s_vertex
 {
@@ -29,6 +30,18 @@ typedef struct		s_vertex
 	int		z;
 	int		color;
 }					t_vertex;
+
+typedef struct		s_env
+{
+	void		*mlx_ptr;
+	void		*win_ptr;
+	void		*img_ptr;
+	void		*data;
+	int			*map;
+	int			bpp;
+	int			size_l;
+	int			endian;
+}					t_env;
 
 int		ft_error(void);
 int		ft_usage(void);

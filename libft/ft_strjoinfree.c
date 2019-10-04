@@ -6,13 +6,13 @@
 /*   By: jcanteau <jcanteau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/23 17:11:35 by jcanteau          #+#    #+#             */
-/*   Updated: 2019/10/04 17:09:27 by jcanteau         ###   ########.fr       */
+/*   Updated: 2019/10/04 17:49:25 by jcanteau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strjoin(char const *s1, char const *s2)
+char	*ft_strjoinfree(char *s1, char *s2)
 {
 	char	*new;
 	size_t	len;

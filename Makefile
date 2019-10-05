@@ -6,7 +6,7 @@
 #    By: jcanteau <jcanteau@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/02 11:22:48 by jcanteau          #+#    #+#              #
-#    Updated: 2019/10/04 18:03:33 by jcanteau         ###   ########.fr        #
+#    Updated: 2019/10/05 17:03:27 by jcanteau         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,6 +37,7 @@ LIB = ./libft/libft.a
 MLXINC = -I /usr/local/include
 MLXLIB = -L /usr/local/lib -lmlx
 FRAMEWORK = -framework OpenGL -framework AppKit
+MLXFLAG = -I /usr/local/include -L /usr/local/lib -lmlx
 CFLAGS = -Wall -Wextra -Werror
 
 $(CC) = gcc
@@ -45,7 +46,7 @@ all: $(NAME)
 
 $(NAME): $(OBJ)
 	make -C libft/.
-	$(CC) $(MLXINC) $(OBJ) $(MLXLIB) $(FRAMEWORK) $(LIB) -o $(NAME)
+	$(CC) $(MLXFLAG) $(OBJ) $(FRAMEWORK) $(LIB) -o $(NAME)
 
 $(OBJ_PATH)%.o: $(SRC_PATH)%.c
 	mkdir $(OBJ_PATH) 2> /dev/null || true
@@ -57,11 +58,15 @@ clean:
 
 fclean: clean
 	make fclean -C libft/.
-	$(RM) $(NAME)
+	$(RM) $(NAME) $(NAME).ubuntu
 
 re: fclean all
 
 norm:
 	norminette $(SRC) $(HEAD)
+
+ubuntu: $(OBJ)
+	make -C libft/.
+	$(cc) $(MLXFLAG) $(OBJ) $(LIB) -o $(NAME).ubuntu
 
 .PHONY: clean fclean re all

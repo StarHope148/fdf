@@ -6,7 +6,7 @@
 /*   By: jcanteau <jcanteau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/04 14:26:35 by jcanteau          #+#    #+#             */
-/*   Updated: 2019/10/04 17:48:35 by jcanteau         ###   ########.fr       */
+/*   Updated: 2019/10/06 19:26:08 by jcanteau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,24 +23,33 @@
 # define WIN_W 800
 # define WIN_H 600
 
+typedef struct		s_map
+{
+	int				x;
+	int				y;
+	size_t			nbl;
+	size_t			nbcol;
+	int				**map;
+}					t_map;
+
 typedef struct		s_vertex
 {
-	int		x;
-	int		y;
-	int		z;
-	int		color;
+	int				x;
+	int				y;
+	int				z;
+	int				color;
 }					t_vertex;
 
 typedef struct		s_env
 {
-	void		*mlx_ptr;
-	void		*win_ptr;
-	void		*img_ptr;
-	void		*data;
-	int			*map;
-	int			bpp;
-	int			size_l;
-	int			endian;
+	void			*mlx_ptr;
+	void			*win_ptr;
+	void			*img_ptr;
+	void			*data;
+	int				bpp;
+	int				size_l;
+	int				endian;
+	t_map			map;
 }					t_env;
 
 int		ft_error(void);
@@ -48,5 +57,6 @@ int		ft_usage(void);
 int		ft_fdf(char *av);
 int		ft_mlx(/*t_point <name>*/);
 int		ft_check_file(char *av);
+int		ft_create_map(t_env *fdf, char *filename);
 
 #endif

@@ -1,36 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_tab2d_new.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jcanteau <jcanteau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/04 14:53:23 by jcanteau          #+#    #+#             */
-/*   Updated: 2019/10/06 19:09:15 by jcanteau         ###   ########.fr       */
+/*   Created: 2019/10/06 18:17:44 by jcanteau          #+#    #+#             */
+/*   Updated: 2019/10/06 19:19:41 by jcanteau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/fdf.h"
+#include "libft.h"
 
-int		ft_error(void)
+int		**ft_tab2d_new(size_t columns, size_t rows)
 {
-	ft_putstr("an error occurred\n");
-	return (-1);
-}
+	int			**tab2d;
+	int			*str;
+	size_t		i;
 
-int		ft_usage(void)
-{
-	ft_putstr("usage: ./fdf [map_file.fdf]\n");
-	return (-1);
-}
-
-int		main(int ac, char **av)
-{
-	if (ac != 2)
-		return (ft_usage());
-	if ((ft_check_file(av[1])) == -1)
-		return (ft_error());
-	if ((ft_fdf(av[1])) == -1)
-		return (ft_error());
-	return (0);
+	if ((tab2d = malloc(sizeof(char *) * columns)) == NULL)
+		return (NULL);
+	if ((str = malloc(sizeof(char) * columns * rows)) == NULL)
+		return (NULL);
+	i = 0;
+	while (i < columns)
+	{
+		tab2d[i] = &str[i * rows];
+		i++;
+	}
+	return (tab2d);
 }

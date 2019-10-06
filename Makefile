@@ -6,7 +6,7 @@
 #    By: jcanteau <jcanteau@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/02 11:22:48 by jcanteau          #+#    #+#              #
-#    Updated: 2019/10/06 12:51:51 by jcanteau         ###   ########.fr        #
+#    Updated: 2019/10/06 18:50:29 by jcanteau         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,6 +21,7 @@ SRC_NAME += fdf.c
 SRC_NAME += mlx.c
 SRC_NAME += bresenham.c
 SRC_NAME += check.c
+SRC_NAME += create_map.c
 
 OBJ_NAME = $(SRC_NAME:.c=.o)
 
@@ -45,32 +46,41 @@ CFLAGS = -Wall -Wextra -Werror
 
 $(CC) = gcc
 
+###############################################################################
+
 all: $(NAME)
 
 $(NAME): $(OBJ)
 	make -C libft/.
-	$(CC) $(MLXFLAG) $(OBJ) $(FRAMEWORK) $(LIB) -o $(NAME)
+	$(CC) $(CFLAGS) $(MLXFLAG) $(OBJ) $(FRAMEWORK) $(LIB) -o $(NAME)
 
 $(OBJ_PATH)%.o: $(SRC_PATH)%.c
 	mkdir -p $(OBJ_PATH)
-	$(CC) $(CPPFLAGS) -o $@ -c $<
+	$(CC) $(CFLAGS) -o $@ -c $<
 
 clean:
-	make clean -C libft/.
+	make clean -C $(LIB_PATH)
 	$(RM) -rf $(OBJ_PATH)
 
-fclean: clean
-	make clean -C libft/.
+fclean: clean debug_clean
+	make clean -C $(LIB_PATH)
 	$(RM) $(LIB)
 	$(RM) $(NAME) $(NAME).ubuntu
 
 re: fclean all
 
+debug:
+	make -C $(LIB_PATH)
+	$(CC) -g3 -fsanitize=address,undefined $(CFLAGS) $(SRC) $(LIB)
+
+debug_clean:
+	$(RM) -rf a.out a.out.DSYM
+	
 norm:
 	norminette $(SRC) $(HEAD)
 
 ubuntu: $(OBJ)
-	make -C libft/.
-	$(cc) $(MLXFLAG) $(OBJ) $(LIB) -o $(NAME).ubuntu
+	make -C $(LIB_PATH)
+	$(CC) $(MLXFLAG) $(OBJ) $(LIB) -o $(NAME).ubuntu
 
-.PHONY: clean fclean re all
+.PHONY: clean fclean re all debug debug_clean norm ubuntu

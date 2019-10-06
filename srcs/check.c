@@ -6,7 +6,7 @@
 /*   By: jcanteau <jcanteau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/04 16:12:23 by jcanteau          #+#    #+#             */
-/*   Updated: 2019/10/04 17:17:43 by jcanteau         ###   ########.fr       */
+/*   Updated: 2019/10/06 13:34:54 by jcanteau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ int		ft_check_file(char *filename)
 	char	*line;
 	int		len;
 
+	whole_file = NULL;
+	line = NULL;
 	if ((fd = open(filename, O_RDONLY)) == 0)
 		return (-1);
 	if (get_next_line(fd, &line) < 1)
@@ -26,17 +28,16 @@ int		ft_check_file(char *filename)
 		ft_putstr("file is empty\n");
 		return (-1);
 	}
-	len = ft_strlen(line);
-	if (line)
-		free(line);
+	len = ft_split_count(line, ' ');
+	free(line);
 	while (get_next_line(fd, &line) > 0)
 	{
-		if (ft_strlen(line) != len)
+		if (ft_split_count(line, ' ') != len)
 			{
-				ft_putstr("lines lenght are different\n");
+				ft_putstr("file format is incorrect\n");
 				return (-1);
 			}
-		whole_file = ft_strjoinfree(whole_file, line);
 	}
+	printf("len = %d\n", len);					//DEBUG
 	return (0);
 }

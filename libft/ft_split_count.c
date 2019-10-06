@@ -1,35 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_split_count.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jcanteau <jcanteau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/04 14:53:23 by jcanteau          #+#    #+#             */
-/*   Updated: 2019/10/06 13:00:27 by jcanteau         ###   ########.fr       */
+/*   Created: 2019/10/06 13:09:52 by jcanteau          #+#    #+#             */
+/*   Updated: 2019/10/06 13:32:54 by jcanteau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/fdf.h"
+#include "libft.h"
 
-int			ft_error(void)
+int		ft_split_count(char const *s, char c)
 {
-	ft_putstr("an error occurred\n");
-	return (-1);
-}
+	int		word;
+	int		count;
 
-int			ft_usage(void)
-{
-    ft_putstr("usage: ./fdf [map_file.fdf]\n");
-    return (-1);
-}
-
-int			main(int ac, char **av)
-{
-    if (ac != 2)
-        return (ft_usage());
-    if ((ft_check_file(av[1])) == -1)
-        return (ft_error());
-    ft_fdf(av[1]);
-    return (0);
+	word = 1;
+	count = 0;
+	while (*s)
+	{
+		if (*s != c && word == 1)
+		{
+			count++;
+			word = 0;
+		}
+		else if (*s == c)
+			word = 1;
+		s++;
+	}
+	return (count);
 }

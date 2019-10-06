@@ -6,7 +6,7 @@
 #    By: jcanteau <jcanteau@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/02 11:22:48 by jcanteau          #+#    #+#              #
-#    Updated: 2019/10/05 17:03:27 by jcanteau         ###   ########.fr        #
+#    Updated: 2019/10/06 12:51:51 by jcanteau         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,15 +24,18 @@ SRC_NAME += check.c
 
 OBJ_NAME = $(SRC_NAME:.c=.o)
 
+LIB_NAME = libft.a
+
+INC_PATH = ./includes/
 SRC_PATH = ./srcs/
 OBJ_PATH = ./objs/
-INC_PATH = ./includes/
+LIB_PATH = ./libft/
 
 SRC = $(addprefix $(SRC_PATH),$(SRC_NAME))
 OBJ = $(addprefix $(OBJ_PATH), $(OBJ_NAME))
 HEAD = $(addprefix $(INC_PATH), $(INC_NAME))
+LIB = $(addprefix $(LIB_PATH), $(LIB_NAME))
 
-LIB = ./libft/libft.a
 
 MLXINC = -I /usr/local/include
 MLXLIB = -L /usr/local/lib -lmlx
@@ -49,7 +52,7 @@ $(NAME): $(OBJ)
 	$(CC) $(MLXFLAG) $(OBJ) $(FRAMEWORK) $(LIB) -o $(NAME)
 
 $(OBJ_PATH)%.o: $(SRC_PATH)%.c
-	mkdir $(OBJ_PATH) 2> /dev/null || true
+	mkdir -p $(OBJ_PATH)
 	$(CC) $(CPPFLAGS) -o $@ -c $<
 
 clean:
@@ -57,7 +60,8 @@ clean:
 	$(RM) -rf $(OBJ_PATH)
 
 fclean: clean
-	make fclean -C libft/.
+	make clean -C libft/.
+	$(RM) $(LIB)
 	$(RM) $(NAME) $(NAME).ubuntu
 
 re: fclean all

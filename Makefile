@@ -6,7 +6,7 @@
 #    By: jcanteau <jcanteau@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/02 11:22:48 by jcanteau          #+#    #+#              #
-#    Updated: 2019/10/06 18:50:29 by jcanteau         ###   ########.fr        #
+#    Updated: 2019/10/07 14:26:28 by jcanteau         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -81,6 +81,6 @@ norm:
 
 ubuntu: $(OBJ)
 	make -C $(LIB_PATH)
-	$(CC) $(MLXFLAG) $(OBJ) $(LIB) -o $(NAME).ubuntu
+	$(CC) $(MLXFLAG) $(OBJ) $(LIB) -o $(NAME)
 
 .PHONY: clean fclean re all debug debug_clean norm ubuntu

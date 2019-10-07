@@ -6,7 +6,7 @@
 /*   By: jcanteau <jcanteau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/06 14:41:21 by jcanteau          #+#    #+#             */
-/*   Updated: 2019/10/07 15:58:54 by jcanteau         ###   ########.fr       */
+/*   Updated: 2019/10/07 16:19:47 by jcanteau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,6 @@ int		ft_count_lines_columns(t_env *fdf, char *filename)
 		return (-1);
 	if ((get_next_line(fd, &line)) <= 0)
 		return (-1);
-	printf("\nline = %s\n\n", line);			//DEBUG
 	fdf->map.nbcol = ft_split_count(line, ' ');
 	fdf->map.nbl++;
 	while (get_next_line(fd, &line) > 0)

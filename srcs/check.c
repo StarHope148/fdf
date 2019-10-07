@@ -6,7 +6,7 @@
 /*   By: jcanteau <jcanteau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/04 16:12:23 by jcanteau          #+#    #+#             */
-/*   Updated: 2019/10/06 19:13:55 by jcanteau         ###   ########.fr       */
+/*   Updated: 2019/10/07 13:59:26 by jcanteau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ int		ft_check_file(char *filename)
 	free(line);
 	while (get_next_line(fd, &line) > 0)
 	{
+		printf("CHECK line = \"%s\"\n", line);			//DEBUG
 		if (ft_split_count(line, ' ') != len)
 		{
 			ft_putstr("file format is incorrect\n");

@@ -6,7 +6,7 @@
 /*   By: jcanteau <jcanteau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/04 15:04:58 by jcanteau          #+#    #+#             */
-/*   Updated: 2019/10/06 18:12:23 by jcanteau         ###   ########.fr       */
+/*   Updated: 2019/10/08 14:23:44 by jcanteau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,10 @@ int			ft_fdf(char *filename)
 	t_env		fdf;
 
 	ft_init_struct(&fdf);
-	if ((ft_create_map(&fdf, filename)) == -1)
+	if (ft_create_map(&fdf, filename) == -1)
 		return (-1);
+//	if (ft_mlx(&fdf) == -1)
+//		return (-1);
 	return (0);
 }
 //create the map the array of t_point

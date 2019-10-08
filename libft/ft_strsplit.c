@@ -1,84 +1,51 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_split_whitespaces.c                             :+:      :+:    :+:   */
+/*   ft_strsplit.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jcanteau <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: jcanteau <jcanteau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/16 14:32:07 by jcanteau          #+#    #+#             */
-/*   Updated: 2018/11/28 16:05:05 by jcanteau         ###   ########.fr       */
+/*   Created: 2019/10/08 14:32:36 by jcanteau          #+#    #+#             */
+/*   Updated: 2019/10/08 14:52:55 by jcanteau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include "libft.h"
 
-static int		nb_word(char *str, char c)
+size_t		ft_word_len(const char *str)
 {
-	int state;
-	int count;
+	size_t	len;
 
-	state = 0;
-	count = 0;
-	while (*str)
-	{
-		if (*str == c)
-			state = 0;
-		else if (state == 0)
-		{
-			state = 1;
-			count++;
-		}
-		str++;
-	}
-	return (count);
+	len = 0;
+	while (str[len] && str[len] != ' ')
+		len++;
+	return (len);
 }
 
-static int		w_len(char *str, int i, char c)
-{
-	int total;
-
-	total = 0;
-	while (str[i] != c && str[i])
-	{
-		total++;
-		i++;
-	}
-	return (total);
-}
-
-static int		is_word(char *str, int i, char c)
-{
-	if (str[i] != (char)c && str[i])
-		return (1);
-	else
-		return (0);
-}
-
-char			**ft_strsplit(char const *str, char c)
+char		**ft_strsplit(char const *s, char c)
 {
 	char	**tab;
+	size_t	nb_word;
+	size_t	len;
 	int		i;
-	int		a;
-	int		b;
 
-	i = -1;
-	a = -1;
-	if (str == NULL)
+
+	if (s == NULL)
 		return (NULL);
-	if (!(tab = (char **)malloc(sizeof(char *) * nb_word((char *)str, c) + 1)))
+	i = 0;
+	nb_word = ft_split_count(s, ' ');
+	if ((tab = malloc(sizeof(char *) * (nb_word + 1))) == NULL)
 		return (NULL);
-	while (str[++i])
-		if (str[i] != (char)c && str[i])
-		{
-			b = 0;
-			if (!(tab[++a] = (char *)malloc(sizeof(char)
-							* w_len((char *)str, i, c) + 1)))
-				return (NULL);
-			while (is_word((char *)str, i, c))
-				tab[a][b++] = str[i++];
-			i--;
-			tab[a][b] = '\0';
-		}
-	tab[++a] = NULL;
+	while (nb_word--)
+	{
+		while (*s && *s == c)
+			s++;
+		len = ft_word_len(s);
+		if ((tab[i] = ft_strsub(s, 0, len)) == NULL)
+			return (NULL);
+		s += len;
+		i++;
+	}
+	tab[i] = NULL;
 	return (tab);
 }

@@ -6,7 +6,7 @@
 #    By: jcanteau <jcanteau@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/02 11:22:48 by jcanteau          #+#    #+#              #
-#    Updated: 2019/10/07 14:26:28 by jcanteau         ###   ########.fr        #
+#    Updated: 2019/10/08 15:28:58 by jcanteau         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,6 +22,7 @@ SRC_NAME += mlx.c
 SRC_NAME += bresenham.c
 SRC_NAME += check.c
 SRC_NAME += create_map.c
+SRC_NAME += mlx_func.c
 
 OBJ_NAME = $(SRC_NAME:.c=.o)
 
@@ -50,7 +51,7 @@ $(CC) = gcc
 
 all: $(NAME)
 
-$(NAME): $(OBJ)
+$(NAME): $(OBJ) 
 	make -C libft/.
 	$(CC) $(CFLAGS) $(MLXFLAG) $(OBJ) $(FRAMEWORK) $(LIB) -o $(NAME)
 
@@ -71,7 +72,7 @@ re: fclean all
 
 debug:
 	make -C $(LIB_PATH)
-	$(CC) -g3 -fsanitize=address,undefined $(CFLAGS) $(SRC) $(LIB)
+	$(CC) -g3 -fsanitize=address,undefined $(CFLAGS) $(SRC) $(LIB) $(MLXFLAG) $(FRAMEWORK)
 
 debug_clean:
 	$(RM) -rf a.out a.out.DSYM

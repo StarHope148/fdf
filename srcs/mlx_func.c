@@ -1,32 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_tab2d_new.c                                     :+:      :+:    :+:   */
+/*   mlx_func.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jcanteau <jcanteau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/06 18:17:44 by jcanteau          #+#    #+#             */
-/*   Updated: 2019/10/08 15:20:12 by jcanteau         ###   ########.fr       */
+/*   Created: 2019/10/08 14:10:29 by jcanteau          #+#    #+#             */
+/*   Updated: 2019/10/08 14:15:16 by jcanteau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../includes/fdf.h"
 
-int		**ft_tab2d_new(size_t columns, size_t rows)
+int			ft_mlx(t_env *fdf)
 {
-	size_t		i;
-	int			**tab2d;
-	int			*str;
-
-	if ((tab2d = malloc(sizeof(int *) * rows)) == NULL)
-		return (NULL);
-	if ((str = malloc(sizeof(int) * columns * rows)) == NULL)
-		return (NULL);
-	i = 0;
-	while (i < columns)
-	{
-		tab2d[i] = &str[i * rows];
-		i++;
-	}
-	return (tab2d);
+	fdf->mlx_ptr = mlx_init();
+	fdf->win_ptr = mlx_new_window(fdf->mlx_ptr, WIN_W, WIN_H, "FDF");
+	mlx_loop(fdf->mlx_ptr);
+	return (0);
 }

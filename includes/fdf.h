@@ -6,7 +6,7 @@
 /*   By: jcanteau <jcanteau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/04 14:26:35 by jcanteau          #+#    #+#             */
-/*   Updated: 2019/10/06 19:26:08 by jcanteau         ###   ########.fr       */
+/*   Updated: 2019/10/08 16:27:27 by jcanteau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,8 +55,9 @@ typedef struct		s_env
 int		ft_error(void);
 int		ft_usage(void);
 int		ft_fdf(char *av);
-int		ft_mlx(/*t_point <name>*/);
 int		ft_check_file(char *av);
+int		ft_mlx(t_env *fdf);
 int		ft_create_map(t_env *fdf, char *filename);
+int		ft_key_hook(int keycode, t_env *fdf);
 
 #endif

@@ -6,7 +6,7 @@
 #    By: jcanteau <jcanteau@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/02 11:22:48 by jcanteau          #+#    #+#              #
-#    Updated: 2019/10/08 15:28:58 by jcanteau         ###   ########.fr        #
+#    Updated: 2019/10/08 18:40:04 by jcanteau         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,13 +16,13 @@ INC_NAME += fdf.h
 INC_NAME += keys_define.h
 
 SRC_NAME += main.c
-SRC_NAME += parse.c
 SRC_NAME += fdf.c
 SRC_NAME += mlx.c
 SRC_NAME += bresenham.c
 SRC_NAME += check.c
 SRC_NAME += create_map.c
 SRC_NAME += mlx_func.c
+SRC_NAME += key_hook.c
 
 OBJ_NAME = $(SRC_NAME:.c=.o)
 
@@ -35,7 +35,7 @@ LIB_PATH = ./libft/
 
 SRC = $(addprefix $(SRC_PATH),$(SRC_NAME))
 OBJ = $(addprefix $(OBJ_PATH), $(OBJ_NAME))
-HEAD = $(addprefix $(INC_PATH), $(INC_NAME))
+HEAD = $(addprefix -I $(INC_PATH), $(INC_NAME))
 LIB = $(addprefix $(LIB_PATH), $(LIB_NAME))
 
 
@@ -57,7 +57,7 @@ $(NAME): $(OBJ)
 
 $(OBJ_PATH)%.o: $(SRC_PATH)%.c
 	mkdir -p $(OBJ_PATH)
-	$(CC) $(CFLAGS) -o $@ -c $<
+	$(CC) $(CFLAGS) $(HEAD) -o $@ -c $< 
 
 clean:
 	make clean -C $(LIB_PATH)

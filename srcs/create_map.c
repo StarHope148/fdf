@@ -6,7 +6,7 @@
 /*   By: jcanteau <jcanteau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/06 14:41:21 by jcanteau          #+#    #+#             */
-/*   Updated: 2019/10/09 15:11:07 by jcanteau         ###   ########.fr       */
+/*   Updated: 2019/10/09 15:39:46 by jcanteau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,10 +39,10 @@ int		ft_fill_map(t_env *fdf, char *filename)
 		while (fdf->map.x < fdf->map.nbcol)
 		{
 			fdf->map.map[fdf->map.y][fdf->map.x] = ft_atoi(split[fdf->map.x]);
-			//free(split[fdf->map.x]);
+			free(split[fdf->map.x]);
 			fdf->map.x++;
 		}
-		//free(split);
+		free(split);
 		fdf->map.y++;
 	}
 	if (fdf->map.y != fdf->map.nbl)

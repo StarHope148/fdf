@@ -6,7 +6,7 @@
 /*   By: jcanteau <jcanteau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/04 14:26:35 by jcanteau          #+#    #+#             */
-/*   Updated: 2019/10/09 15:55:48 by jcanteau         ###   ########.fr       */
+/*   Updated: 2019/10/09 18:09:26 by jcanteau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ typedef struct		s_env
 	void			*mlx_ptr;
 	void			*win_ptr;
 	void			*img_ptr;
-	void			*data;
+	int				*data;
 	int				bpp;
 	int				size_l;
 	int				endian;

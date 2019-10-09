@@ -6,31 +6,35 @@
 /*   By: jcanteau <jcanteau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/04 15:14:40 by jcanteau          #+#    #+#             */
-/*   Updated: 2019/10/09 18:08:56 by jcanteau         ###   ########.fr       */
+/*   Updated: 2019/10/09 19:53:37 by jcanteau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fdf.h"
 
-void	bresenham(t_env *fdf,int x0, int y0, int x1, int y1)
+void	  bresenham(t_env *fdf, int x0, int y0, int x1, int y1)
 {
-	int deltax = x1 - x0;
-    int deltay = y1 - y0;
-    int deltaerr = ft_abs(deltay / deltax);	// Assume deltax != 0 (line is not vertical),
-           					// note that this division needs to be done in a way that preserves the fractional part
-    int error = 0.0; 		// No error at start
-    int y = y0;
-	int	x = x0;
-	while (x < x1)
-	{ 
-         //mlx_pixel_put(mlx->id, mlx->win, x, y, 0xFFFFFF);
-		 fdf->data[y * WIN_W + x] = 0xFFFFFF;  //[current height * max width + current width]
-         error = error + deltaerr;
-         if (error >= 0.5)
-		 {
-             y = y + ft_sign(deltay) * 1;
-             error = error - 1.0;
-		 }
-		 x++;
+	int dx =  ft_abs(x1 - x0);
+	int sx = x0 < x1 ? 1 : -1;
+	int dy = -(ft_abs(y1 - y0));
+	int sy = y0 < y1 ? 1 : -1;
+	int err = dx + dy;  /* error value e_xy */
+	int	e2;
+	while (1)
+	{   /* loop */
+		fdf->data[y0 * WIN_W + x0] = 0xFFFFFF;  //[current height * max width + current width]
+		if (x0 == x1 && y0 == y1)
+			 break;
+		e2 = 2 * err;
+		if (e2 >= dy)
+		{
+			err += dy; /* e_xy+e_x > 0 */
+			x0 += sx;
+		}
+		if (e2 <= dx) /* e_xy+e_y < 0 */
+		{
+			err += dx;
+			y0 += sy;
+		}
 	}
-} 
+}

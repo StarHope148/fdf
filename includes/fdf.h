@@ -6,7 +6,7 @@
 /*   By: jcanteau <jcanteau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/04 14:26:35 by jcanteau          #+#    #+#             */
-/*   Updated: 2019/10/09 18:09:26 by jcanteau         ###   ########.fr       */
+/*   Updated: 2019/10/09 20:03:19 by jcanteau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,8 +71,8 @@ int		ft_check_file(char *av);
 int		ft_mlx(t_env *fdf);
 int		ft_create_map(t_env *fdf, char *filename);
 int		ft_key_hook(int keycode, t_env *fdf);
-
-
+void	bresenham(t_env *fdf,int x0, int y0, int x1, int y1);
+void	ft_link_points(t_env *fdf);
 
 
 #endif

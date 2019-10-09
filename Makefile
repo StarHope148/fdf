@@ -6,7 +6,7 @@
 #    By: jcanteau <jcanteau@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/02 11:22:48 by jcanteau          #+#    #+#              #
-#    Updated: 2019/10/09 15:40:23 by jcanteau         ###   ########.fr        #
+#    Updated: 2019/10/09 18:20:11 by jcanteau         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,6 +22,7 @@ SRC_NAME += check.c
 SRC_NAME += create_map.c
 SRC_NAME += mlx_func.c
 SRC_NAME += key_hook.c
+SRC_NAME += image.c
 
 OBJ_NAME = $(SRC_NAME:.c=.o)
 

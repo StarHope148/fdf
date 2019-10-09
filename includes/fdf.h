@@ -6,7 +6,7 @@
 /*   By: jcanteau <jcanteau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/04 14:26:35 by jcanteau          #+#    #+#             */
-/*   Updated: 2019/10/09 14:27:12 by jcanteau         ###   ########.fr       */
+/*   Updated: 2019/10/09 15:55:48 by jcanteau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,17 @@ typedef struct		s_map
 	int				**map;
 }					t_map;
 
+/* typedef struct 		s_vec2i
+{
+	int	x;
+	int y;
+}					t_vec2i;
+
+t_vec2i		vec2i(int x, int y)
+{
+	return ((t_vec2i){x, y})
+} */
+
 typedef struct		s_vertex
 {
 	int				x;
@@ -49,6 +60,7 @@ typedef struct		s_env
 	int				bpp;
 	int				size_l;
 	int				endian;
+	//t_vec2i			vec0
 	t_map			map;
 }					t_env;
 
@@ -59,5 +71,8 @@ int		ft_check_file(char *av);
 int		ft_mlx(t_env *fdf);
 int		ft_create_map(t_env *fdf, char *filename);
 int		ft_key_hook(int keycode, t_env *fdf);
+
+
+
 
 #endif

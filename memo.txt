@@ -1,0 +1,8 @@
+Ordre de prosess
+
+- parsing
+- bresenham (trace une droite (start et end))
+- map 42
+- orthonorme
+- iso
+- vecteur par matrice 

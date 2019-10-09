@@ -6,7 +6,7 @@
 #    By: jcanteau <jcanteau@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/02 11:22:48 by jcanteau          #+#    #+#              #
-#    Updated: 2019/10/08 18:40:04 by jcanteau         ###   ########.fr        #
+#    Updated: 2019/10/09 14:12:45 by jcanteau         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,6 @@ INC_NAME += keys_define.h
 
 SRC_NAME += main.c
 SRC_NAME += fdf.c
-SRC_NAME += mlx.c
 SRC_NAME += bresenham.c
 SRC_NAME += check.c
 SRC_NAME += create_map.c

@@ -6,7 +6,7 @@
 /*   By: jcanteau <jcanteau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/04 16:12:23 by jcanteau          #+#    #+#             */
-/*   Updated: 2019/10/07 13:59:26 by jcanteau         ###   ########.fr       */
+/*   Updated: 2019/10/09 13:38:01 by jcanteau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,8 @@ int		ft_check_file(char *filename)
 			ft_putstr("file format is incorrect\n");
 			return (-1);
 		}
+		free(line);
 	}
-	free(line);
 	if ((close(fd) == -1))
 		return (-1);
 	return (0);

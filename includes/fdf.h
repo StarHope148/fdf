@@ -6,7 +6,7 @@
 /*   By: jcanteau <jcanteau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/04 14:26:35 by jcanteau          #+#    #+#             */
-/*   Updated: 2019/10/09 20:03:19 by jcanteau         ###   ########.fr       */
+/*   Updated: 2019/10/10 16:56:39 by jcanteau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,17 +20,7 @@
 # include "../libft/libft.h"
 # include "keys_define.h"
 
-# define WIN_W 800
-# define WIN_H 600
-
-typedef struct		s_map
-{
-	int				x;
-	int				y;
-	int				nbl;
-	int				nbcol;
-	int				**map;
-}					t_map;
+# define SCL 20
 
 /* typedef struct 		s_vec2i
 {
@@ -51,12 +41,23 @@ typedef struct		s_vertex
 	int				color;
 }					t_vertex;
 
+typedef struct		s_map
+{
+	int				x;
+	int				y;
+	int				nbl;
+	int				nbcol;
+	t_vertex		**tab;
+}					t_map;
+
 typedef struct		s_env
 {
 	void			*mlx_ptr;
 	void			*win_ptr;
 	void			*img_ptr;
 	int				*data;
+	int				width;
+	int				height;
 	int				bpp;
 	int				size_l;
 	int				endian;

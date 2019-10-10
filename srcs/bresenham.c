@@ -6,7 +6,7 @@
 /*   By: jcanteau <jcanteau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/04 15:14:40 by jcanteau          #+#    #+#             */
-/*   Updated: 2019/10/09 19:53:37 by jcanteau         ###   ########.fr       */
+/*   Updated: 2019/10/10 16:44:26 by jcanteau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,8 @@ void	  bresenham(t_env *fdf, int x0, int y0, int x1, int y1)
 	int	e2;
 	while (1)
 	{   /* loop */
-		fdf->data[y0 * WIN_W + x0] = 0xFFFFFF;  //[current height * max width + current width]
+		//if (y0 * width + x0 < fdf->map.nbl * fdf->map.nbcol * SCL)
+			fdf->data[y0 * fdf->width + x0] = 0xFFFFFF;  //[current height * max width + current width]
 		if (x0 == x1 && y0 == y1)
 			 break;
 		e2 = 2 * err;

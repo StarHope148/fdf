@@ -6,13 +6,30 @@
 /*   By: jcanteau <jcanteau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/06 14:41:21 by jcanteau          #+#    #+#             */
-/*   Updated: 2019/10/09 15:39:46 by jcanteau         ###   ########.fr       */
+/*   Updated: 2019/10/10 16:54:52 by jcanteau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fdf.h"
 
-int		ft_fill_map(t_env *fdf, char *filename)
+static t_vertex		**ft_malloc_tab(t_env *fdf)
+{
+	t_vertex	**vtab;
+	int			i;
+
+	if ((vtab = malloc(sizeof(t_vertex *) * fdf->map.nbl)) == NULL)
+		return (NULL);
+	i = 0;
+	while (i < fdf->map.nbl)
+	{
+		if ((vtab[i] = malloc(sizeof(t_vertex) * fdf->map.nbcol)) == NULL)
+			return (NULL);
+		i++;
+	}
+	return (vtab);
+}
+
+int					ft_fill_map(t_env *fdf, char *filename)
 {
 	char		*line;
 	char		**split;
@@ -22,7 +39,7 @@ int		ft_fill_map(t_env *fdf, char *filename)
 	fd = 0;
 	if ((fd = open(filename, O_RDONLY)) == -1)
 		return (-1);
-	if ((fdf->map.map = ft_tab2d_new(fdf->map.nbcol, fdf->map.nbl)) == NULL)
+	if ((fdf->map.tab = ft_malloc_tab(fdf)) == NULL)
 		return (-1);
 	while (get_next_line(fd, &line) == 1)
 	{
@@ -38,7 +55,7 @@ int		ft_fill_map(t_env *fdf, char *filename)
 		fdf->map.x = 0;
 		while (fdf->map.x < fdf->map.nbcol)
 		{
-			fdf->map.map[fdf->map.y][fdf->map.x] = ft_atoi(split[fdf->map.x]);
+			fdf->map.tab[fdf->map.y][fdf->map.x].z = ft_atoi(split[fdf->map.x]);
 			free(split[fdf->map.x]);
 			fdf->map.x++;
 		}
@@ -52,7 +69,7 @@ int		ft_fill_map(t_env *fdf, char *filename)
 	return (0);
 }
 
-int		ft_count_lines_columns(t_env *fdf, char *filename)
+int					ft_count_lines_columns(t_env *fdf, char *filename)
 {
 	char		*line;
 	int			fd;

@@ -6,7 +6,7 @@
 /*   By: jcanteau <jcanteau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/09 18:20:17 by jcanteau          #+#    #+#             */
-/*   Updated: 2019/10/10 14:31:22 by jcanteau         ###   ########.fr       */
+/*   Updated: 2019/10/10 16:54:12 by jcanteau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,16 @@
 
 void	ft_link_points(t_env *fdf)
 {
-	(void)fdf;
+	fdf->map.y = 0;
+	while (fdf->map.y < fdf->map.nbl)
+	{
+		fdf->map.x = 0;
+		while (fdf->map.x < fdf->map.nbcol)
+		{
+			bresenham(fdf, fdf->map.x * SCL, fdf->map.y * SCL, fdf->map.x + 1 * SCL, fdf->map.y * SCL);
+			bresenham(fdf, fdf->map.x * SCL, fdf->map.y * SCL, fdf->map.x * SCL, fdf->map.y + 1 * SCL);
+			fdf->map.x++;
+		}
+		fdf->map.y++;
+	}
 }

@@ -6,7 +6,7 @@
 #    By: jcanteau <jcanteau@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/02 11:22:48 by jcanteau          #+#    #+#              #
-#    Updated: 2019/10/09 18:20:11 by jcanteau         ###   ########.fr        #
+#    Updated: 2019/10/10 16:51:43 by jcanteau         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,7 +35,7 @@ LIB_PATH = ./libft/
 
 SRC = $(addprefix $(SRC_PATH),$(SRC_NAME))
 OBJ = $(addprefix $(OBJ_PATH), $(OBJ_NAME))
-HEAD = $(addprefix -I $(INC_PATH), $(INC_NAME))
+HEAD = $(addprefix $(INC_PATH), $(INC_NAME))
 LIB = $(addprefix $(LIB_PATH), $(LIB_NAME))
 
 #MLXINC = -I /usr/local/include
@@ -50,13 +50,13 @@ $(CC) = gcc
 
 all: $(NAME)
 
-$(NAME): $(OBJ) 
+$(NAME): $(OBJ)
 	make -C libft/.
 	$(CC) $(CFLAGS) $(MLXFLAG) $(OBJ) $(FRAMEWORK) $(LIB) -o $(NAME)
 
-$(OBJ_PATH)%.o: $(SRC_PATH)%.c
+$(OBJ_PATH)%.o: $(SRC_PATH)%.c $(HEAD)
 	mkdir -p $(OBJ_PATH)
-	$(CC) $(CFLAGS) $(HEAD) -o $@ -c $< 
+	$(CC) $(CFLAGS) -o $@ -c $< 
 
 clean:
 	make clean -C $(LIB_PATH)

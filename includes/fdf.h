@@ -6,7 +6,7 @@
 /*   By: jcanteau <jcanteau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/04 14:26:35 by jcanteau          #+#    #+#             */
-/*   Updated: 2019/10/10 16:56:39 by jcanteau         ###   ########.fr       */
+/*   Updated: 2019/10/10 17:53:56 by jcanteau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,8 @@ typedef struct		s_vertex
 
 typedef struct		s_map
 {
-	int				x;
-	int				y;
+	long double				x;
+	long double				y;
 	int				nbl;
 	int				nbcol;
 	t_vertex		**tab;
@@ -74,6 +74,6 @@ int		ft_create_map(t_env *fdf, char *filename);
 int		ft_key_hook(int keycode, t_env *fdf);
 void	bresenham(t_env *fdf,int x0, int y0, int x1, int y1);
 void	ft_link_points(t_env *fdf);
-
+void	ft_3d_2d(t_env *fdf, int x, int y, int z);
 
 #endif

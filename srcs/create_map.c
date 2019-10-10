@@ -6,7 +6,7 @@
 /*   By: jcanteau <jcanteau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/06 14:41:21 by jcanteau          #+#    #+#             */
-/*   Updated: 2019/10/10 16:54:52 by jcanteau         ###   ########.fr       */
+/*   Updated: 2019/10/10 17:46:44 by jcanteau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@ int					ft_fill_map(t_env *fdf, char *filename)
 	char		*line;
 	char		**split;
 	int			fd;
+	int			x;
+	int			y;
 //	int			a = 0;
 
 	fd = 0;
@@ -41,6 +43,7 @@ int					ft_fill_map(t_env *fdf, char *filename)
 		return (-1);
 	if ((fdf->map.tab = ft_malloc_tab(fdf)) == NULL)
 		return (-1);
+	y = 0;
 	while (get_next_line(fd, &line) == 1)
 	{
 		printf("FILL = %s\n", line);						//DEBUG
@@ -52,17 +55,19 @@ int					ft_fill_map(t_env *fdf, char *filename)
 			printf("---SPLIT[%d] = %s\n", a, split[a]);
 			a++;
 		} */
-		fdf->map.x = 0;
-		while (fdf->map.x < fdf->map.nbcol)
+		x = 0;
+		while (x < fdf->map.nbcol)
 		{
-			fdf->map.tab[fdf->map.y][fdf->map.x].z = ft_atoi(split[fdf->map.x]);
-			free(split[fdf->map.x]);
-			fdf->map.x++;
+			fdf->map.tab[y][x].z = ft_atoi(split[x]);
+			fdf->map.tab[y][x].x = x;
+			fdf->map.tab[y][x].y = y;
+			free(split[x]);
+			x++;
 		}
 		free(split);
-		fdf->map.y++;
+		y++;
 	}
-	if (fdf->map.y != fdf->map.nbl)
+	if (y != fdf->map.nbl)
 		return (-1);
 	if ((close(fd)) == -1)
 		return (-1);

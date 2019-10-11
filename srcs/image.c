@@ -6,7 +6,7 @@
 /*   By: jcanteau <jcanteau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/09 18:20:17 by jcanteau          #+#    #+#             */
-/*   Updated: 2019/10/10 17:42:07 by jcanteau         ###   ########.fr       */
+/*   Updated: 2019/10/11 15:18:54 by jcanteau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,9 +36,11 @@ void	ft_link_points(t_env *fdf)
 		c = 0;
 		while (c < fdf->map.nbcol)
 		{
-			ft_3d_2d(fdf, fdf->map.tab[r][c].x, fdf->map.tab[r][c].y, fdf->map.tab[r][c].z);
-			bresenham(fdf, fdf->map.x * SCL, fdf->map.y * SCL, fdf->map.x + 1 * SCL, fdf->map.y * SCL);
-			bresenham(fdf, fdf->map.x * SCL, fdf->map.y * SCL, fdf->map.x * SCL, fdf->map.y + 1 * SCL);
+			//ft_3d_2d(fdf, fdf->map.tab[r][c].x, fdf->map.tab[r][c].y, fdf->map.tab[r][c].z);
+			if (c + 1 < fdf->map.nbcol)
+				bresenham(fdf, fdf->map.tab[r][c].x * SCL, fdf->map.tab[r][c].y * SCL, fdf->map.tab[r][c + 1].x * SCL, fdf->map.tab[r][c + 1].y * SCL);
+			if (r + 1 < fdf->map.nbl)
+				bresenham(fdf, fdf->map.tab[r][c].x * SCL, fdf->map.tab[r][c].y * SCL, fdf->map.tab[r + 1][c].x * SCL, fdf->map.tab[r + 1][c].y * SCL);
 			c++;
 		}
 		r++;

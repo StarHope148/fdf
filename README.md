@@ -7,3 +7,5 @@ LINKING MinilibX on BSD/Linux and X-Window To use MiniLibX functions, you'll nee
 You may also need to specify the path to these libraries, using the -L flag.
 
 MLX guide : https://github.com/qst0/ft_libgfx
+
+Coding Math (JavaScript): https://www.youtube.com/user/codingmath/videos

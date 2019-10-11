@@ -6,7 +6,7 @@
 /*   By: jcanteau <jcanteau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/06 14:41:21 by jcanteau          #+#    #+#             */
-/*   Updated: 2019/10/10 17:46:44 by jcanteau         ###   ########.fr       */
+/*   Updated: 2019/10/11 15:25:46 by jcanteau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,12 @@ static t_vertex		**ft_malloc_tab(t_env *fdf)
 	t_vertex	**vtab;
 	int			i;
 
-	if ((vtab = malloc(sizeof(t_vertex *) * fdf->map.nbl)) == NULL)
+	if ((vtab = (t_vertex **)ft_memalloc(sizeof(t_vertex *) * fdf->map.nbl)) == NULL)
 		return (NULL);
 	i = 0;
 	while (i < fdf->map.nbl)
 	{
-		if ((vtab[i] = malloc(sizeof(t_vertex) * fdf->map.nbcol)) == NULL)
+		if ((vtab[i] = (t_vertex *)ft_memalloc(sizeof(t_vertex) * fdf->map.nbcol)) == NULL)
 			return (NULL);
 		i++;
 	}
@@ -58,10 +58,11 @@ int					ft_fill_map(t_env *fdf, char *filename)
 		x = 0;
 		while (x < fdf->map.nbcol)
 		{
-			fdf->map.tab[y][x].z = ft_atoi(split[x]);
 			fdf->map.tab[y][x].x = x;
 			fdf->map.tab[y][x].y = y;
+			fdf->map.tab[y][x].z = ft_atoi(split[x]);
 			free(split[x]);
+			printf("tab[%d][%d]:\tx = %d | y = %d | z = %d\n", y, x, fdf->map.tab[y][x].x, fdf->map.tab[y][x].y, fdf->map.tab[y][x].z);	//DEBUG
 			x++;
 		}
 		free(split);
@@ -100,7 +101,7 @@ int			ft_create_map(t_env *fdf, char *filename)
 {
 	if ((ft_count_lines_columns(fdf, filename)) == -1)
 		return (-1);
-	printf("nb lignes = %d\tnb colonnes = %d\n", fdf->map.nbl, fdf->map.nbcol);			//DEBUG
+	printf("---------------------------------nb rows = %d\tnb columns = %d\n", fdf->map.nbl, fdf->map.nbcol);			//DEBUG
 	if ((ft_fill_map(fdf, filename)) == -1)
 		return (-1);
 	return (0);

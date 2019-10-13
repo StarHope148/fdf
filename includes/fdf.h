@@ -6,7 +6,7 @@
 /*   By: jcanteau <jcanteau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/04 14:26:35 by jcanteau          #+#    #+#             */
-/*   Updated: 2019/10/13 16:50:34 by jcanteau         ###   ########.fr       */
+/*   Updated: 2019/10/13 18:33:36 by jcanteau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@
 # include <math.h>
 
 # define SCL 10
-# define FL 20
 
 /* typedef struct 		s_vec2i
 {
@@ -74,6 +73,7 @@ typedef struct		s_env
 	int				endian;
 	int				cx;
 	int				cy;
+	int				fl;
 	//t_vec2i			vec0
 	t_map			map;
 	t_pro			**pro;
@@ -89,6 +89,7 @@ int		ft_key_hook(int keycode, t_env *fdf);
 void	bresenham(t_env *fdf,int x0, int y0, int x1, int y1);
 int		ft_link_points(t_env *fdf);
 int		ft_3d_2d(t_env *fdf);
-void	ft_rotate_z(t_env *fdf, double val);
+//void	ft_rotate_z(t_env *fdf, double val);
+int		ft_reprint(t_env *fdf);
 
 #endif

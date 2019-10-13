@@ -6,7 +6,7 @@
 /*   By: jcanteau <jcanteau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/04 14:26:35 by jcanteau          #+#    #+#             */
-/*   Updated: 2019/10/11 15:13:39 by jcanteau         ###   ########.fr       */
+/*   Updated: 2019/10/13 16:50:34 by jcanteau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,10 @@
 # include <unistd.h>
 # include "../libft/libft.h"
 # include "keys_define.h"
+# include <math.h>
 
-# define SCL 20
+# define SCL 10
+# define FL 20
 
 /* typedef struct 		s_vec2i
 {
@@ -41,10 +43,19 @@ typedef struct		s_vertex
 	int				color;
 }					t_vertex;
 
+typedef struct		s_pro
+{
+	int				px;
+	int				py;
+	double			xx;
+	double			yy;
+	double			zz;
+}					t_pro;
+
 typedef struct		s_map
 {
-	long double				x;
-	long double				y;
+	double			x;
+	double			y;
 	int				nbl;
 	int				nbcol;
 	t_vertex		**tab;
@@ -61,8 +72,11 @@ typedef struct		s_env
 	int				bpp;
 	int				size_l;
 	int				endian;
+	int				cx;
+	int				cy;
 	//t_vec2i			vec0
 	t_map			map;
+	t_pro			**pro;
 }					t_env;
 
 int		ft_error(void);
@@ -73,7 +87,8 @@ int		ft_mlx(t_env *fdf);
 int		ft_create_map(t_env *fdf, char *filename);
 int		ft_key_hook(int keycode, t_env *fdf);
 void	bresenham(t_env *fdf,int x0, int y0, int x1, int y1);
-void	ft_link_points(t_env *fdf);
-void	ft_3d_2d(t_env *fdf, int x, int y, int z);
+int		ft_link_points(t_env *fdf);
+int		ft_3d_2d(t_env *fdf);
+void	ft_rotate_z(t_env *fdf, double val);
 
 #endif

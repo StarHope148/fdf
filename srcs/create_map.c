@@ -6,7 +6,7 @@
 /*   By: jcanteau <jcanteau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/06 14:41:21 by jcanteau          #+#    #+#             */
-/*   Updated: 2019/10/11 15:25:46 by jcanteau         ###   ########.fr       */
+/*   Updated: 2019/10/13 15:13:12 by jcanteau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ int					ft_fill_map(t_env *fdf, char *filename)
 			fdf->map.tab[y][x].y = y;
 			fdf->map.tab[y][x].z = ft_atoi(split[x]);
 			free(split[x]);
-			printf("tab[%d][%d]:\tx = %d | y = %d | z = %d\n", y, x, fdf->map.tab[y][x].x, fdf->map.tab[y][x].y, fdf->map.tab[y][x].z);	//DEBUG
+			//printf("tab[%d][%d]:\tx = %d | y = %d | z = %d\n", y, x, fdf->map.tab[y][x].x, fdf->map.tab[y][x].y, fdf->map.tab[y][x].z);	//DEBUG
 			x++;
 		}
 		free(split);

@@ -6,7 +6,7 @@
 /*   By: jcanteau <jcanteau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/04 15:04:58 by jcanteau          #+#    #+#             */
-/*   Updated: 2019/10/10 16:56:38 by jcanteau         ###   ########.fr       */
+/*   Updated: 2019/10/13 16:06:02 by jcanteau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@ void		ft_init_struct(t_env *fdf)
 	fdf->win_ptr = NULL;
 	fdf->img_ptr = NULL;
 	fdf->data = NULL;
-	fdf->width = 1920;
-	fdf->height = 1080;
+	fdf->width = 2000;
+	fdf->height = 1200;
 	fdf->bpp = 0;
 	fdf->size_l = 0;
 	fdf->endian = 0;
@@ -28,6 +28,9 @@ void		ft_init_struct(t_env *fdf)
 	fdf->map.nbl = 0;
 	fdf->map.nbcol = 0;
 	fdf->map.tab = NULL;
+	fdf->cx = 200;
+	fdf->cy = 200;
+	fdf->pro = NULL;
 }
 
 int			ft_fdf(char *filename)
@@ -41,6 +44,6 @@ int			ft_fdf(char *filename)
 		return (-1);
 	return (0);
 }
-//create the map the array of t_point
+//create the array of t_vertex
 //display it with MLX
 //free it

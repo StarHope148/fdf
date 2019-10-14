@@ -6,7 +6,7 @@
 /*   By: jcanteau <jcanteau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/06 14:41:21 by jcanteau          #+#    #+#             */
-/*   Updated: 2019/10/13 15:13:12 by jcanteau         ###   ########.fr       */
+/*   Updated: 2019/10/14 18:40:35 by jcanteau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,6 @@ int					ft_fill_map(t_env *fdf, char *filename)
 	int			fd;
 	int			x;
 	int			y;
-//	int			a = 0;
 
 	fd = 0;
 	if ((fd = open(filename, O_RDONLY)) == -1)
@@ -46,15 +45,9 @@ int					ft_fill_map(t_env *fdf, char *filename)
 	y = 0;
 	while (get_next_line(fd, &line) == 1)
 	{
-		printf("FILL = %s\n", line);						//DEBUG
+		//printf("FILL = %s\n", line);						//DEBUG
 		split = NULL;
 		split = ft_strsplit(line, ' ');
-/* 		a = 0;
-		while (split[a])
-		{
-			printf("---SPLIT[%d] = %s\n", a, split[a]);
-			a++;
-		} */
 		x = 0;
 		while (x < fdf->map.nbcol)
 		{
@@ -62,7 +55,7 @@ int					ft_fill_map(t_env *fdf, char *filename)
 			fdf->map.tab[y][x].y = y;
 			fdf->map.tab[y][x].z = ft_atoi(split[x]);
 			free(split[x]);
-			//printf("tab[%d][%d]:\tx = %d | y = %d | z = %d\n", y, x, fdf->map.tab[y][x].x, fdf->map.tab[y][x].y, fdf->map.tab[y][x].z);	//DEBUG
+			////printf("tab[%d][%d]:\tx = %d | y = %d | z = %d\n", y, x, fdf->map.tab[y][x].x, fdf->map.tab[y][x].y, fdf->map.tab[y][x].z);	//DEBUG
 			x++;
 		}
 		free(split);
@@ -101,7 +94,7 @@ int			ft_create_map(t_env *fdf, char *filename)
 {
 	if ((ft_count_lines_columns(fdf, filename)) == -1)
 		return (-1);
-	printf("---------------------------------nb rows = %d\tnb columns = %d\n", fdf->map.nbl, fdf->map.nbcol);			//DEBUG
+	//printf("---------------------------------nb rows = %d\tnb columns = %d\n", fdf->map.nbl, fdf->map.nbcol);			//DEBUG
 	if ((ft_fill_map(fdf, filename)) == -1)
 		return (-1);
 	return (0);

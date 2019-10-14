@@ -6,7 +6,7 @@
 /*   By: jcanteau <jcanteau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/04 14:26:35 by jcanteau          #+#    #+#             */
-/*   Updated: 2019/10/14 17:51:10 by jcanteau         ###   ########.fr       */
+/*   Updated: 2019/10/14 19:26:24 by jcanteau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 # include "../libft/libft.h"
 # include "keys_define.h"
 # include <math.h>
- 
+
 # define SCL 10
 
 /* typedef struct 		s_vec2i
@@ -76,24 +76,25 @@ typedef struct		s_env
 	double			fl;
 	double			el;
 	double			dist;
+	double			ang;
 	int				iso;
 	//t_vec2i			vec0
 	t_map			map;
 	t_pro			**pro;
 }					t_env;
 
-int		ft_error(void);
-int		ft_usage(void);
-int		ft_fdf(char *av);
-int		ft_check_file(char *av);
-int		ft_mlx(t_env *fdf);
-int		ft_create_map(t_env *fdf, char *filename);
-int		ft_key_hook(int keycode, t_env *fdf);
-void	bresenham(t_env *fdf,int x0, int y0, int x1, int y1);
-int		ft_link_points(t_env *fdf);
-int		ft_3d_2d(t_env *fdf);
-//void	ft_rotate_z(t_env *fdf, double val);
-int		ft_reprint(t_env *fdf);
-void	ft_iso(t_env *fdf);
+int					ft_error(void);
+int					ft_usage(void);
+int					ft_fdf(char *av);
+int					ft_check_file(char *av);
+int					ft_mlx(t_env *fdf);
+int					ft_create_map(t_env *fdf, char *filename);
+int					ft_key_hook(int keycode, t_env *fdf);
+void				bresenham(t_env *fdf, int x0, int y0, int x1, int y1);
+int					ft_link_points(t_env *fdf);
+int					ft_3d_2d(t_env *fdf);
+//void				ft_rotate_z(t_env *fdf, double val);
+int					ft_reprint(t_env *fdf);
+void				ft_iso(t_env *fdf);
 
 #endif

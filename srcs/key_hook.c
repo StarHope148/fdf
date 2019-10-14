@@ -6,7 +6,7 @@
 /*   By: jcanteau <jcanteau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/08 15:41:09 by jcanteau          #+#    #+#             */
-/*   Updated: 2019/10/14 17:11:55 by jcanteau         ###   ########.fr       */
+/*   Updated: 2019/10/14 17:52:18 by jcanteau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,9 +43,9 @@ void	ft_distance(int keycode, t_env *fdf)
 void	ft_elevation(int keycode, t_env *fdf)
 {
 	if (keycode == SEVEN_NUM_PAD)
-		fdf->el += 1;
+		fdf->el += 0.1;
 	else if (keycode == EIGHT_NUM_PAD)
-		fdf->el = (fdf->el <= 0 ) ? 0 : fdf->el - 1;
+		fdf->el = (fdf->el <= 0.1 ) ? 0 : fdf->el - 0.1;
 }
 
 int		ft_key_hook(int keycode, t_env *fdf)

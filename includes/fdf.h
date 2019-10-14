@@ -6,7 +6,7 @@
 /*   By: jcanteau <jcanteau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/04 14:26:35 by jcanteau          #+#    #+#             */
-/*   Updated: 2019/10/14 17:10:11 by jcanteau         ###   ########.fr       */
+/*   Updated: 2019/10/14 17:51:10 by jcanteau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ typedef struct		s_env
 	int				cx;
 	int				cy;
 	double			fl;
-	int				el;
+	double			el;
 	double			dist;
 	int				iso;
 	//t_vec2i			vec0

@@ -6,7 +6,7 @@
 /*   By: jcanteau <jcanteau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/10 17:19:32 by jcanteau          #+#    #+#             */
-/*   Updated: 2019/10/14 17:50:39 by jcanteau         ###   ########.fr       */
+/*   Updated: 2019/10/14 18:02:13 by jcanteau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,8 @@ void		ft_iso(t_env *fdf)
 		c = 0;
 		while (c < fdf->map.nbcol)
 		{
-			nextx = ((fdf->map.tab[r][c].x - fdf->map.tab[r][c].y) * cos(0.523599)) * fdf->fl + fdf->cx;
-			nexty = (-fdf->map.tab[r][c].z * fdf->el  + ((fdf->map.tab[r][c].x + fdf->map.tab[r][c].y) * sin(0.523599))) * fdf->fl + fdf->cy;
+			nextx = fdf->cx * 2 + ((fdf->map.tab[r][c].x - fdf->map.tab[r][c].y) * cos(0.523599)) * fdf->fl * 0.01 + fdf->cx;
+			nexty = fdf->cy * 2 + (-fdf->map.tab[r][c].z * fdf->el  + ((fdf->map.tab[r][c].x + fdf->map.tab[r][c].y) * sin(0.523599))) * fdf->fl * 0.01 + fdf->cy;
 			fdf->pro[r][c].px = nextx;
 			fdf->pro[r][c].py = nexty;
 			c++;

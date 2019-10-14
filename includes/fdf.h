@@ -6,7 +6,7 @@
 /*   By: jcanteau <jcanteau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/04 14:26:35 by jcanteau          #+#    #+#             */
-/*   Updated: 2019/10/13 18:33:36 by jcanteau         ###   ########.fr       */
+/*   Updated: 2019/10/14 15:49:12 by jcanteau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,7 @@ typedef struct		s_env
 	int				cx;
 	int				cy;
 	int				fl;
+	int				iso;
 	//t_vec2i			vec0
 	t_map			map;
 	t_pro			**pro;
@@ -91,5 +92,6 @@ int		ft_link_points(t_env *fdf);
 int		ft_3d_2d(t_env *fdf);
 //void	ft_rotate_z(t_env *fdf, double val);
 int		ft_reprint(t_env *fdf);
+void	ft_iso(t_env *fdf);
 
 #endif

@@ -6,40 +6,30 @@
 /*   By: jcanteau <jcanteau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/09 18:20:17 by jcanteau          #+#    #+#             */
-/*   Updated: 2019/10/13 18:29:04 by jcanteau         ###   ########.fr       */
+/*   Updated: 2019/10/14 15:53:10 by jcanteau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fdf.h"
 
-/* void	ft_rotate_z(t_env *fdf, double val)
+void	ft_iso(t_env *fdf)
 {
 	int		r;
 	int		c;
-	double	nextx;
-	double 	nexty;
-	double	ang;
-
-	ang = 0 + val;
+	
 	r = 0;
 	while (r < fdf->map.nbl)
 	{
 		c = 0;
 		while (c < fdf->map.nbcol)
 		{
-			nextx = (cos(ang) * fdf->pro[r][c].xx) - (sin(ang) * fdf->pro[r][c].yy);
-			nexty = (sin(ang) * fdf->pro[r][c].xx) + (cos(ang) * fdf->pro[r][c].yy);
-			fdf->pro[r][c].xx = nextx;
-			fdf->pro[r][c].yy = nexty;
-			
-			xx = (cos(a)*x) - (sin(a)*y)
-			yy = (sin(a)*x) + (cos(a)*y) 
-			
+			fdf->pro[r][c].px = (fdf->map.tab[r][c].x - fdf->map.tab[r][c].y) * fdf->fl + fdf->cx;
+			fdf->pro[r][c].py = ((fdf->map.tab[r][c].x + fdf->map.tab[r][c].y) / 2) * fdf->fl + fdf->cy;
 			c++;
 		}
 		r++;
 	}
-} */
+}
 
 int		ft_reprint(t_env *fdf)
 {
@@ -58,6 +48,8 @@ int		ft_link_points(t_env *fdf)
 
 	if ((ft_3d_2d(fdf)) == -1)
 		return (-1);
+	if (fdf->iso == 1)
+		ft_iso(fdf);
 	r = 0;
 	while (r < fdf->map.nbl)
 	{

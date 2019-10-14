@@ -6,7 +6,7 @@
 /*   By: jcanteau <jcanteau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/08 15:41:09 by jcanteau          #+#    #+#             */
-/*   Updated: 2019/10/13 18:40:11 by jcanteau         ###   ########.fr       */
+/*   Updated: 2019/10/14 15:55:05 by jcanteau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,28 +15,17 @@
 void 	ft_move(int keycode, t_env *fdf)
 {
 	if (keycode == LEFT_ARROW)
-	{
 		fdf->cx -= 20;
-		ft_link_points(fdf);
-	}
 	else if (keycode == RIGHT_ARROW)
-	{
 		fdf->cx += 20;
-		ft_link_points(fdf);
-	}
 	else if (keycode == UP_ARROW)
-	{
 		fdf->cy -= 20;
-		ft_link_points(fdf);
-	}
 	else if (keycode == DOWN_ARROW)
-	{
 		fdf->cy += 20;
-		ft_link_points(fdf);
-	}
+	ft_link_points(fdf);
 }
 
-void	ft_zoom(int	keycode, t_env *fdf)
+void 	ft_zoom(int	keycode, t_env *fdf)
 {
 	if (keycode == ONE_NUM_PAD)
 		fdf->fl += 5;
@@ -54,6 +43,11 @@ int		ft_key_hook(int keycode, t_env *fdf)
 		ft_move(keycode, fdf);
 	else if (keycode == ONE_NUM_PAD || keycode == TWO_NUM_PAD)
 		ft_zoom(keycode, fdf);
+	else if (keycode == I)
+	{
+		fdf->iso = (fdf->iso == 0 ? 1 : 0);
+		ft_link_points(fdf);
+	}
 	else
 		ft_putnbr(keycode);
 		ft_putstr(" ");

@@ -6,7 +6,7 @@
 /*   By: jcanteau <jcanteau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/08 14:10:29 by jcanteau          #+#    #+#             */
-/*   Updated: 2019/10/14 18:49:53 by jcanteau         ###   ########.fr       */
+/*   Updated: 2019/10/14 19:58:29 by jcanteau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int				ft_mlx(t_env *fdf)
 	fdf->img_ptr = mlx_new_image(fdf->mlx_ptr, fdf->width, fdf->height);
 	fdf->data = (int *)mlx_get_data_addr(fdf->img_ptr, &fdf->bpp,
 											&fdf->size_l, &fdf->endian);
-	mlx_key_hook(fdf->win_ptr, ft_key_hook, fdf);
+	mlx_hook(fdf->win_ptr, 2, 0, ft_key_hook, fdf);
 	if ((fdf->pro = ft_malloc_t_pro(fdf)) == NULL)
 		return (-1);
 	if (ft_link_points(fdf) == -1)

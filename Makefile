@@ -6,7 +6,7 @@
 #    By: jcanteau <jcanteau@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/02 11:22:48 by jcanteau          #+#    #+#              #
-#    Updated: 2019/10/10 17:32:59 by jcanteau         ###   ########.fr        #
+#    Updated: 2019/10/14 20:37:36 by jcanteau         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,6 +24,7 @@ SRC_NAME += mlx_func.c
 SRC_NAME += key_hook.c
 SRC_NAME += image.c
 SRC_NAME += projection.c
+SRC_NAME += color.c
 
 OBJ_NAME = $(SRC_NAME:.c=.o)
 

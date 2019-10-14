@@ -6,7 +6,7 @@
 /*   By: jcanteau <jcanteau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/08 15:41:09 by jcanteau          #+#    #+#             */
-/*   Updated: 2019/10/14 19:13:03 by jcanteau         ###   ########.fr       */
+/*   Updated: 2019/10/14 20:25:54 by jcanteau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,37 +15,37 @@
 void	ft_move(int keycode, t_env *fdf)
 {
 	if (keycode == LEFT_ARROW)
-		fdf->cx -= 20;
+		fdf->cx -= 5;
 	else if (keycode == RIGHT_ARROW)
-		fdf->cx += 20;
+		fdf->cx += 5;
 	else if (keycode == UP_ARROW)
-		fdf->cy -= 20;
+		fdf->cy -= 5;
 	else if (keycode == DOWN_ARROW)
-		fdf->cy += 20;
+		fdf->cy += 5;
 }
 
 void	ft_zoom(int keycode, t_env *fdf)
 {
 	if (keycode == ONE_NUM_PAD)
-		fdf->fl *= 1.1;
+		fdf->fl *= 1.05;
 	else if (keycode == TWO_NUM_PAD)
-		fdf->fl *= 0.90909;
+		fdf->fl *= 0.952380;
 }
 
 void	ft_distance(int keycode, t_env *fdf)
 {
 	if (keycode == FIVE_NUM_PAD)
-		fdf->dist += 10;
+		fdf->dist += 1;
 	else if (keycode == FOUR_NUM_PAD)
-		fdf->dist -= 10;
+		fdf->dist -= 1;
 }
 
 void	ft_elevation(int keycode, t_env *fdf)
 {
 	if (keycode == SEVEN_NUM_PAD)
-		fdf->el += 0.1;
+		fdf->el += 0.02;
 	else if (keycode == EIGHT_NUM_PAD)
-		fdf->el = (fdf->el <= 0.1) ? 0 : fdf->el - 0.1;
+		fdf->el = (fdf->el <= 0.02) ? 0 : fdf->el - 0.02;
 }
 
 void	ft_rotate(int keycode, t_env *fdf)

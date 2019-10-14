@@ -6,7 +6,7 @@
 /*   By: jcanteau <jcanteau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/04 14:26:35 by jcanteau          #+#    #+#             */
-/*   Updated: 2019/10/14 19:26:24 by jcanteau         ###   ########.fr       */
+/*   Updated: 2019/10/14 20:35:40 by jcanteau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,5 +96,6 @@ int					ft_3d_2d(t_env *fdf);
 //void				ft_rotate_z(t_env *fdf, double val);
 int					ft_reprint(t_env *fdf);
 void				ft_iso(t_env *fdf);
+void				ft_color(t_env *fdf,long color);
 
 #endif

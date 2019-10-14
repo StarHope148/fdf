@@ -6,7 +6,7 @@
 /*   By: jcanteau <jcanteau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/04 15:04:58 by jcanteau          #+#    #+#             */
-/*   Updated: 2019/10/14 18:24:38 by jcanteau         ###   ########.fr       */
+/*   Updated: 2019/10/14 20:32:20 by jcanteau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void		ft_init_struct(t_env *fdf)
 	fdf->cx = 200;
 	fdf->cy = 200;
 	fdf->fl = 4000;
-	fdf->el = 1 ;
+	fdf->el = 1;
 	fdf->dist = 50;
 	fdf->iso = 1;
 	fdf->ang = 0.523599;

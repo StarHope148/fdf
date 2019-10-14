@@ -6,7 +6,7 @@
 /*   By: jcanteau <jcanteau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/04 14:26:35 by jcanteau          #+#    #+#             */
-/*   Updated: 2019/10/14 15:49:12 by jcanteau         ###   ########.fr       */
+/*   Updated: 2019/10/14 16:46:25 by jcanteau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 # include "../libft/libft.h"
 # include "keys_define.h"
 # include <math.h>
-
+ 
 # define SCL 10
 
 /* typedef struct 		s_vec2i
@@ -73,7 +73,8 @@ typedef struct		s_env
 	int				endian;
 	int				cx;
 	int				cy;
-	int				fl;
+	double			fl;
+	double			dist;
 	int				iso;
 	//t_vec2i			vec0
 	t_map			map;

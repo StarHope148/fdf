@@ -6,7 +6,7 @@
 /*   By: jcanteau <jcanteau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/04 15:14:40 by jcanteau          #+#    #+#             */
-/*   Updated: 2019/10/13 15:41:13 by jcanteau         ###   ########.fr       */
+/*   Updated: 2019/10/14 16:19:03 by jcanteau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,8 @@ void	  bresenham(t_env *fdf, int x0, int y0, int x1, int y1)
 	while (1)
 	{   /* loop */
 		if ((y0 * fdf->width + x0 < fdf->width * fdf->height) 
-			&& (y0 >= 0 && x0 >= 0))
+				&& (y0 >= 0 && x0 >= 0) 
+				&& (y0 < fdf->height && x0 < fdf->width))
 			fdf->data[y0 * fdf->width + x0] = 0xFFFFFF;  //[current height * max width + current width]
 		if (x0 == x1 && y0 == y1)
 			 break;

@@ -6,38 +6,19 @@
 /*   By: jcanteau <jcanteau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/09 18:20:17 by jcanteau          #+#    #+#             */
-/*   Updated: 2019/10/14 15:53:10 by jcanteau         ###   ########.fr       */
+/*   Updated: 2019/10/14 16:32:55 by jcanteau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fdf.h"
 
-void	ft_iso(t_env *fdf)
-{
-	int		r;
-	int		c;
-	
-	r = 0;
-	while (r < fdf->map.nbl)
-	{
-		c = 0;
-		while (c < fdf->map.nbcol)
-		{
-			fdf->pro[r][c].px = (fdf->map.tab[r][c].x - fdf->map.tab[r][c].y) * fdf->fl + fdf->cx;
-			fdf->pro[r][c].py = ((fdf->map.tab[r][c].x + fdf->map.tab[r][c].y) / 2) * fdf->fl + fdf->cy;
-			c++;
-		}
-		r++;
-	}
-}
-
 int		ft_reprint(t_env *fdf)
 {
+	mlx_destroy_image(fdf->mlx_ptr, fdf->img_ptr);
 	fdf->img_ptr = mlx_new_image(fdf->mlx_ptr, fdf->width, fdf->height);
 	fdf->data = (int *)mlx_get_data_addr(fdf->img_ptr, &fdf->bpp, &fdf->size_l, &fdf->endian);
 	ft_link_points(fdf);
 	mlx_put_image_to_window(fdf->mlx_ptr, fdf->win_ptr, fdf->img_ptr, 0, 0);
-	mlx_destroy_image(fdf->mlx_ptr, fdf->img_ptr);
 	return (0);
 }
 

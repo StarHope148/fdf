@@ -6,7 +6,7 @@
 /*   By: jcanteau <jcanteau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/04 15:04:58 by jcanteau          #+#    #+#             */
-/*   Updated: 2019/10/14 15:49:21 by jcanteau         ###   ########.fr       */
+/*   Updated: 2019/10/14 16:25:22 by jcanteau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,8 @@ void		ft_init_struct(t_env *fdf)
 	fdf->map.tab = NULL;
 	fdf->cx = 200;
 	fdf->cy = 200;
-	fdf->fl = 20;
+	fdf->fl = 60;
+	fdf->dist = 50;
 	fdf->iso = 0;
 	fdf->pro = NULL;
 }

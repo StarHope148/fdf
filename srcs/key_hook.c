@@ -6,7 +6,7 @@
 /*   By: jcanteau <jcanteau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/08 15:41:09 by jcanteau          #+#    #+#             */
-/*   Updated: 2019/10/14 16:46:11 by jcanteau         ###   ########.fr       */
+/*   Updated: 2019/10/14 17:11:55 by jcanteau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ void 	ft_move(int keycode, t_env *fdf)
 		fdf->cy -= 20;
 	else if (keycode == DOWN_ARROW)
 		fdf->cy += 20;
-	ft_link_points(fdf);
 }
 
 void 	ft_zoom(int	keycode, t_env *fdf)
@@ -31,7 +30,6 @@ void 	ft_zoom(int	keycode, t_env *fdf)
 		fdf->fl *= 2;
 	else if (keycode == TWO_NUM_PAD)
 		fdf->fl *= 0.5;
-	ft_link_points(fdf);
 }
 
 void	ft_distance(int keycode, t_env *fdf)
@@ -40,7 +38,14 @@ void	ft_distance(int keycode, t_env *fdf)
 		fdf->dist += 10;
 	else if (keycode == FOUR_NUM_PAD)
 		fdf->dist -= 10;
-	ft_link_points(fdf);
+}
+
+void	ft_elevation(int keycode, t_env *fdf)
+{
+	if (keycode == SEVEN_NUM_PAD)
+		fdf->el += 1;
+	else if (keycode == EIGHT_NUM_PAD)
+		fdf->el = (fdf->el <= 0 ) ? 0 : fdf->el - 1;
 }
 
 int		ft_key_hook(int keycode, t_env *fdf)
@@ -54,14 +59,14 @@ int		ft_key_hook(int keycode, t_env *fdf)
 		ft_zoom(keycode, fdf);
 	else if (keycode == FOUR_NUM_PAD || keycode == FIVE_NUM_PAD)
 		ft_distance(keycode, fdf);
+	else if (keycode == SEVEN_NUM_PAD || keycode == EIGHT_NUM_PAD)
+		ft_elevation(keycode, fdf);
 	else if (keycode == I)
-	{
 		fdf->iso = (fdf->iso == 0 ? 1 : 0);
-		ft_link_points(fdf);
-	}
 	else
 		ft_putnbr(keycode);
 		ft_putstr(" ");
+	ft_link_points(fdf);
 	ft_reprint(fdf);
 	return (0);
 }

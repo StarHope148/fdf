@@ -6,38 +6,37 @@
 /*   By: jcanteau <jcanteau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/04 15:14:40 by jcanteau          #+#    #+#             */
-/*   Updated: 2019/10/14 18:35:56 by jcanteau         ###   ########.fr       */
+/*   Updated: 2019/10/15 14:32:20 by jcanteau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fdf.h"
 
-void	  bresenham(t_env *fdf, int x0, int y0, int x1, int y1)
+void	bresenham(t_env *fdf, int color)
 {
-	int dx =  ft_abs(x1 - x0);
-	int sx = x0 < x1 ? 1 : -1;
-	int dy = -(ft_abs(y1 - y0));
-	int sy = y0 < y1 ? 1 : -1;
-	int err = dx + dy;  /* error value e_xy */
-	int	e2;
+	fdf->dx =  ft_abs(fdf->pix.xnext - fdf->pix.xcur);
+	fdf->sx = fdf->pix.xcur < fdf->pix.xnext ? 1 : -1;
+	fdf->dy = -(ft_abs(fdf->pix.ynext - fdf->pix.ycur));
+	fdf->sy = fdf->pix.ycur < fdf->pix.ynext ? 1 : -1;
+	fdf->err = fdf->dx + fdf->dy;  /* error value e_xy */
 	while (1)
 	{   /* loop */
-		if ((y0 * fdf->width + x0 < fdf->width * fdf->height) 
-				&& (y0 >= 0 && x0 >= 0) 
-				&& (y0 < fdf->height && x0 < fdf->width))
-			fdf->data[y0 * fdf->width + x0] = 0xFFFFFF;  //[current height * max width + current width]
-		if (x0 == x1 && y0 == y1)
-			 break;
-		e2 = 2 * err;
-		if (e2 >= dy)
+		if ((fdf->pix.ycur * fdf->width + fdf->pix.xcur < fdf->width * fdf->height)
+				&& (fdf->pix.ycur >= 0 && fdf->pix.xcur >= 0) 
+				&& (fdf->pix.ycur < fdf->height && fdf->pix.xcur < fdf->width))
+			fdf->data[fdf->pix.ycur * fdf->width + fdf->pix.xcur] = color;  //[current height * max width + current width]
+		if (fdf->pix.xcur == fdf->pix.xnext && fdf->pix.ycur == fdf->pix.ynext)
+			break;
+		fdf->e2 = 2 * fdf->err;
+		if (fdf->e2 >= fdf->dy)
 		{
-			err += dy; /* e_xy+e_x > 0 */
-			x0 += sx;
+			fdf->err += fdf->dy; /* e_xy+e_x > 0 */
+			fdf->pix.xcur += fdf->sx;
 		}
-		if (e2 <= dx) /* e_xy+e_y < 0 */
+		if (fdf->e2 <= fdf->dx) /* e_xy+e_y < 0 */
 		{
-			err += dx;
-			y0 += sy;
+			fdf->err += fdf->dx;
+			fdf->pix.ycur += fdf->sy;
 		}
 	}
 }

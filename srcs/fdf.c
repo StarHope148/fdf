@@ -6,7 +6,7 @@
 /*   By: jcanteau <jcanteau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/04 15:04:58 by jcanteau          #+#    #+#             */
-/*   Updated: 2019/10/14 20:32:20 by jcanteau         ###   ########.fr       */
+/*   Updated: 2019/10/15 14:45:41 by jcanteau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,11 +31,21 @@ void		ft_init_struct(t_env *fdf)
 	fdf->cx = 200;
 	fdf->cy = 200;
 	fdf->fl = 4000;
-	fdf->el = 1;
+	fdf->el = 0.1;
 	fdf->dist = 50;
 	fdf->iso = 1;
 	fdf->ang = 0.523599;
 	fdf->pro = NULL;
+	fdf->dx = 0;
+	fdf->sx = 0;
+	fdf->dy = 0;
+	fdf->sy = 0;
+	fdf->err = 0;
+	fdf->e2 = 0;
+	fdf->pix.xcur = 0;
+	fdf->pix.ycur = 0;
+	fdf->pix.xnext = 0;
+	fdf->pix.ynext = 0;
 }
 
 int			ft_fdf(char *filename)

@@ -6,7 +6,7 @@
 /*   By: jcanteau <jcanteau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/09 18:20:17 by jcanteau          #+#    #+#             */
-/*   Updated: 2019/10/14 18:43:48 by jcanteau         ###   ########.fr       */
+/*   Updated: 2019/10/15 14:33:10 by jcanteau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,11 +39,21 @@ int		ft_link_points(t_env *fdf)
 		while (c < fdf->map.nbcol)
 		{
 			if (c + 1 < fdf->map.nbcol)
-				bresenham(fdf, fdf->pro[r][c].px, fdf->pro[r][c].py,
-							fdf->pro[r][c + 1].px, fdf->pro[r][c + 1].py);
+			{
+				fdf->pix.xcur = fdf->pro[r][c].px;
+				fdf->pix.ycur = fdf->pro[r][c].py;
+				fdf->pix.xnext = fdf->pro[r][c + 1].px;
+				fdf->pix.ynext = fdf->pro[r][c + 1].py;
+				bresenham(fdf, fdf->map.tab[r][c].color);
+			}
 			if (r + 1 < fdf->map.nbl)
-				bresenham(fdf, fdf->pro[r][c].px, fdf->pro[r][c].py,
-							fdf->pro[r + 1][c].px, fdf->pro[r + 1][c].py);
+			{
+				fdf->pix.xcur = fdf->pro[r][c].px;
+				fdf->pix.ycur = fdf->pro[r][c].py;
+				fdf->pix.xnext = fdf->pro[r + 1][c].px;
+				fdf->pix.ynext = fdf->pro[r + 1][c].py;
+				bresenham(fdf, fdf->map.tab[r][c].color);
+			}
 			c++;
 		}
 		r++;

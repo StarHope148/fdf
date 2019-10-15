@@ -6,7 +6,7 @@
 /*   By: jcanteau <jcanteau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/06 14:41:21 by jcanteau          #+#    #+#             */
-/*   Updated: 2019/10/14 20:36:22 by jcanteau         ###   ########.fr       */
+/*   Updated: 2019/10/15 14:38:53 by jcanteau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,15 +47,19 @@ int					ft_fill_map(t_env *fdf, char *filename)
 	{
 		//printf("FILL = %s\n", line);						//DEBUG
 		split = NULL;
-		split = ft_strsplit(line, ' ');
+		if ((split = ft_strsplit(line, ' ')) == NULL)
+			return (-1);
 		x = 0;
 		while (x < fdf->map.nbcol)
 		{
 			fdf->map.tab[y][x].x = x;
 			fdf->map.tab[y][x].y = y;
 			fdf->map.tab[y][x].z = ft_atoi(split[x]);
+			fdf->map.tab[y][x].color = 0xFFFFFF;
+			if (ft_strchr(split[x], ',') != NULL)
+				fdf->map.tab[y][x].color = ft_ahextoi(ft_strchr(split[x], 'x') + 1);
 			free(split[x]);
-			////printf("tab[%d][%d]:\tx = %d | y = %d | z = %d\n", y, x, fdf->map.tab[y][x].x, fdf->map.tab[y][x].y, fdf->map.tab[y][x].z);	//DEBUG
+			printf("tab[%d][%d]:\tx = %d | y = %d | z = %d | color = %d\n", y, x, fdf->map.tab[y][x].x, fdf->map.tab[y][x].y, fdf->map.tab[y][x].z, fdf->map.tab[y][x].color);	//DEBUG
 			x++;
 		}
 		free(split);

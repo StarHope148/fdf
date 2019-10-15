@@ -6,7 +6,7 @@
 /*   By: jcanteau <jcanteau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/04 14:26:35 by jcanteau          #+#    #+#             */
-/*   Updated: 2019/10/14 20:35:40 by jcanteau         ###   ########.fr       */
+/*   Updated: 2019/10/15 14:33:17 by jcanteau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,14 @@ t_vec2i		vec2i(int x, int y)
 {
 	return ((t_vec2i){x, y})
 } */
+
+typedef struct		s_pix
+{
+	int				xcur;
+	int				ycur;
+	int				xnext;
+	int				ynext;
+}					t_pix;
 
 typedef struct		s_vertex
 {
@@ -78,9 +86,16 @@ typedef struct		s_env
 	double			dist;
 	double			ang;
 	int				iso;
+	int				dx;
+	int				sx;
+	int				dy;
+	int				sy;
+	int				err;
+	int				e2;
 	//t_vec2i			vec0
 	t_map			map;
 	t_pro			**pro;
+	t_pix			pix;
 }					t_env;
 
 int					ft_error(void);
@@ -90,12 +105,13 @@ int					ft_check_file(char *av);
 int					ft_mlx(t_env *fdf);
 int					ft_create_map(t_env *fdf, char *filename);
 int					ft_key_hook(int keycode, t_env *fdf);
-void				bresenham(t_env *fdf, int x0, int y0, int x1, int y1);
+void				bresenham(t_env *fdf, int color);
 int					ft_link_points(t_env *fdf);
 int					ft_3d_2d(t_env *fdf);
 //void				ft_rotate_z(t_env *fdf, double val);
 int					ft_reprint(t_env *fdf);
 void				ft_iso(t_env *fdf);
 void				ft_color(t_env *fdf,long color);
+int					ft_ahextoi(char *str);
 
 #endif

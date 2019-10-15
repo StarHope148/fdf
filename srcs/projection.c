@@ -6,7 +6,7 @@
 /*   By: jcanteau <jcanteau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/10 17:19:32 by jcanteau          #+#    #+#             */
-/*   Updated: 2019/10/15 17:05:58 by jcanteau         ###   ########.fr       */
+/*   Updated: 2019/10/15 17:40:31 by jcanteau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,10 +67,10 @@ void		ft_ortho(t_env *fdf)
 			if (fdf->map.tab[r][c].z == 0
 				|| fdf->map.tab[r][c].z + fdf->dist == 0)
 				fdf->map.tab[r][c].z += 1;
-			fdf->pro[r][c].px = fdf->cx + ((fdf->map.tab[r][c].x * fdf->fl)
-								/ (fdf->map.tab[r][c].z * fdf->el + fdf->dist));
-			fdf->pro[r][c].py = fdf->cy + ((fdf->map.tab[r][c].y * fdf->fl)
-								/ (fdf->map.tab[r][c].z * fdf->el + fdf->dist));
+			fdf->pro[r][c].px = fdf->cx + (((fdf->map.tab[r][c].x * fdf->fl)
+								+ fdf->dist)) / 100;
+			fdf->pro[r][c].py = fdf->cy + (((fdf->map.tab[r][c].y * fdf->fl)
+								+ fdf->dist)) / 100;
 			//printf("tab[%d][%d]:\tx = %d | y = %d | z = %d\t\t\t--->\tx' = %d | y' = %d\n", r, c, fdf->map.tab[r][c].x, fdf->map.tab[r][c].y, fdf->map.tab[r][c].z, fdf->pro[r][c].px, fdf->pro[r][c].py);	//DEBUG
 			c++;
 		}

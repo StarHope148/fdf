@@ -6,7 +6,7 @@
 /*   By: jcanteau <jcanteau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/04 14:26:35 by jcanteau          #+#    #+#             */
-/*   Updated: 2019/10/15 17:09:56 by jcanteau         ###   ########.fr       */
+/*   Updated: 2019/10/15 19:31:18 by jcanteau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,8 @@
 # include "keys.h"
 # include "colors.h"
 
-# define SCL 10
+# define CX_O 200
+# define CY_O 100
 
 /* typedef struct 		s_vec2i
 {
@@ -87,7 +88,7 @@ typedef struct		s_env
 	double			el;
 	double			dist;
 	double			ang;
-	short			iso;
+	short			projection_mod;
 	short			colormod;
 	int				dx;
 	int				sx;
@@ -118,5 +119,6 @@ void				ft_color_fill(t_env *fdf, char *split, int x, int y);
 void				ft_color_choice(t_env *fdf);
 int					ft_ahextoi(char *str);
 t_pro				**ft_malloc_t_pro(t_env *fdf);
+void				ft_print_menu(t_env *fdf);
 
 #endif

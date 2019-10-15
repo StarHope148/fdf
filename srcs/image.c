@@ -6,7 +6,7 @@
 /*   By: jcanteau <jcanteau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/09 18:20:17 by jcanteau          #+#    #+#             */
-/*   Updated: 2019/10/15 17:05:54 by jcanteau         ###   ########.fr       */
+/*   Updated: 2019/10/15 19:28:56 by jcanteau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ int		ft_reprint(t_env *fdf)
 											&fdf->size_l, &fdf->endian);
 	ft_link_points(fdf);
 	mlx_put_image_to_window(fdf->mlx_ptr, fdf->win_ptr, fdf->img_ptr, 0, 0);
+	ft_print_menu(fdf);
 	return (0);
 }
 
@@ -30,7 +31,7 @@ int		ft_link_points(t_env *fdf)
 
 	if ((fdf->pro = ft_malloc_t_pro(fdf)) == NULL)
 		return (-1);
-	if (fdf->iso == 1)
+	if (fdf->projection_mod == 0)
 		ft_iso(fdf);
 	else
 		ft_ortho(fdf);

@@ -6,7 +6,7 @@
 /*   By: jcanteau <jcanteau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/08 14:10:29 by jcanteau          #+#    #+#             */
-/*   Updated: 2019/10/15 16:53:07 by jcanteau         ###   ########.fr       */
+/*   Updated: 2019/10/15 19:29:00 by jcanteau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,10 @@ int				ft_mlx(t_env *fdf)
 	mlx_hook(fdf->win_ptr, 2, 0, ft_key_hook, fdf);
 	if (ft_link_points(fdf) == -1)
 		return (-1);
+	mlx_string_put(fdf->mlx_ptr, fdf->win_ptr, fdf->height - 200, 220, WHITE, "elevate  [7]/[8]");
 	mlx_put_image_to_window(fdf->mlx_ptr, fdf->win_ptr, fdf->img_ptr, 0, 0);
+	ft_print_menu(fdf);
+
 	mlx_loop(fdf->mlx_ptr);
 	return (0);
 }

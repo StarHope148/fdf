@@ -6,7 +6,7 @@
 #    By: jcanteau <jcanteau@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/02 11:22:48 by jcanteau          #+#    #+#              #
-#    Updated: 2019/10/15 17:08:45 by jcanteau         ###   ########.fr        #
+#    Updated: 2019/10/15 19:29:41 by jcanteau         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,6 +26,7 @@ SRC_NAME += key_hook.c
 SRC_NAME += image.c
 SRC_NAME += projection.c
 SRC_NAME += color.c
+SRC_NAME += menu.c
 
 OBJ_NAME = $(SRC_NAME:.c=.o)
 

@@ -6,7 +6,7 @@
 /*   By: jcanteau <jcanteau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/15 15:51:56 by jcanteau          #+#    #+#             */
-/*   Updated: 2019/10/15 17:09:43 by jcanteau         ###   ########.fr       */
+/*   Updated: 2019/10/15 17:27:57 by jcanteau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,5 +30,7 @@
 # define PURPLE 0x800080
 # define TEAL 0x008080
 # define NAVY 0x000080
+# define BROWN 0x663300
+# define SAND 0xF2D16B
 
 #endif

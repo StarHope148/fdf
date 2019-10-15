@@ -6,7 +6,7 @@
 /*   By: jcanteau <jcanteau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/06 14:41:21 by jcanteau          #+#    #+#             */
-/*   Updated: 2019/10/15 14:38:53 by jcanteau         ###   ########.fr       */
+/*   Updated: 2019/10/15 17:03:17 by jcanteau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,11 +55,9 @@ int					ft_fill_map(t_env *fdf, char *filename)
 			fdf->map.tab[y][x].x = x;
 			fdf->map.tab[y][x].y = y;
 			fdf->map.tab[y][x].z = ft_atoi(split[x]);
-			fdf->map.tab[y][x].color = 0xFFFFFF;
-			if (ft_strchr(split[x], ',') != NULL)
-				fdf->map.tab[y][x].color = ft_ahextoi(ft_strchr(split[x], 'x') + 1);
+			ft_color_fill(fdf, split[x], x, y);
 			free(split[x]);
-			printf("tab[%d][%d]:\tx = %d | y = %d | z = %d | color = %d\n", y, x, fdf->map.tab[y][x].x, fdf->map.tab[y][x].y, fdf->map.tab[y][x].z, fdf->map.tab[y][x].color);	//DEBUG
+			//printf("tab[%d][%d]:\tx = %d | y = %d | z = %d | color = %d\n", y, x, fdf->map.tab[y][x].x, fdf->map.tab[y][x].y, fdf->map.tab[y][x].z, fdf->map.tab[y][x].color);	//DEBUG
 			x++;
 		}
 		free(split);

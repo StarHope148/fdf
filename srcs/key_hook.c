@@ -6,7 +6,7 @@
 /*   By: jcanteau <jcanteau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/08 15:41:09 by jcanteau          #+#    #+#             */
-/*   Updated: 2019/10/15 14:49:14 by jcanteau         ###   ########.fr       */
+/*   Updated: 2019/10/15 16:48:04 by jcanteau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,15 @@ void	ft_rotate(int keycode, t_env *fdf)
 		fdf->ang -= 0.01;
 }
 
+void	ft_switch_color(t_env *fdf)
+{
+	if (fdf->colormod >= 1)
+		fdf->colormod = 0;
+	else
+		fdf->colormod++;
+	ft_color_choice(fdf);	
+}
+
 int		ft_key_hook(int keycode, t_env *fdf)
 {
 	if (keycode == ESC)
@@ -73,6 +82,8 @@ int		ft_key_hook(int keycode, t_env *fdf)
 		ft_rotate(keycode, fdf);
 	else if (keycode == I)
 		fdf->iso = (fdf->iso == 0 ? 1 : 0);
+	else if (keycode == THREE_NUM_PAD)
+		ft_switch_color(fdf);
 	else
 	{
 		ft_putnbr(keycode);

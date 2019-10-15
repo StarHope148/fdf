@@ -6,11 +6,29 @@
 /*   By: jcanteau <jcanteau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/10 17:19:32 by jcanteau          #+#    #+#             */
-/*   Updated: 2019/10/14 18:53:46 by jcanteau         ###   ########.fr       */
+/*   Updated: 2019/10/15 17:05:58 by jcanteau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fdf.h"
+
+t_pro	**ft_malloc_t_pro(t_env *fdf)
+{
+	t_pro		**vtab;
+	int			r;
+
+	if ((vtab = (t_pro **)ft_memalloc(sizeof(t_pro *) * fdf->map.nbl)) == NULL)
+		return (NULL);
+	r = 0;
+	while (r < fdf->map.nbl)
+	{
+		if ((vtab[r] = (t_pro *)ft_memalloc(sizeof(t_pro)
+						* fdf->map.nbcol)) == NULL)
+			return (NULL);
+		r++;
+	}
+	return (vtab);
+}
 
 void		ft_iso(t_env *fdf)
 {
@@ -35,7 +53,7 @@ void		ft_iso(t_env *fdf)
 	}
 }
 
-int			ft_3d_2d(t_env *fdf)
+void		ft_ortho(t_env *fdf)
 {
 	int		r;
 	int		c;
@@ -59,7 +77,6 @@ int			ft_3d_2d(t_env *fdf)
 		r++;
 	}
 	//printf("-----------------------------------------------------\n");
-	return (0);
 }
 
 /*

@@ -6,7 +6,7 @@
 /*   By: jcanteau <jcanteau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/09 18:20:17 by jcanteau          #+#    #+#             */
-/*   Updated: 2019/10/15 14:33:10 by jcanteau         ###   ########.fr       */
+/*   Updated: 2019/10/15 17:05:54 by jcanteau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,10 +28,12 @@ int		ft_link_points(t_env *fdf)
 	int		r;
 	int		c;
 
-	if ((ft_3d_2d(fdf)) == -1)
+	if ((fdf->pro = ft_malloc_t_pro(fdf)) == NULL)
 		return (-1);
 	if (fdf->iso == 1)
 		ft_iso(fdf);
+	else
+		ft_ortho(fdf);
 	r = 0;
 	while (r < fdf->map.nbl)
 	{

@@ -6,7 +6,7 @@
 /*   By: jcanteau <jcanteau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/04 14:26:35 by jcanteau          #+#    #+#             */
-/*   Updated: 2019/10/15 14:33:17 by jcanteau         ###   ########.fr       */
+/*   Updated: 2019/10/15 17:09:56 by jcanteau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,10 @@
 # include <stdlib.h>
 # include <fcntl.h>
 # include <unistd.h>
-# include "../libft/libft.h"
-# include "keys_define.h"
 # include <math.h>
+# include "../libft/libft.h"
+# include "keys.h"
+# include "colors.h"
 
 # define SCL 10
 
@@ -48,6 +49,7 @@ typedef struct		s_vertex
 	int				y;
 	int				z;
 	int				color;
+	int				defcolor;
 }					t_vertex;
 
 typedef struct		s_pro
@@ -85,7 +87,8 @@ typedef struct		s_env
 	double			el;
 	double			dist;
 	double			ang;
-	int				iso;
+	short			iso;
+	short			colormod;
 	int				dx;
 	int				sx;
 	int				dy;
@@ -100,18 +103,20 @@ typedef struct		s_env
 
 int					ft_error(void);
 int					ft_usage(void);
-int					ft_fdf(char *av);
+int					ft_fdf_init(char *av);
 int					ft_check_file(char *av);
 int					ft_mlx(t_env *fdf);
 int					ft_create_map(t_env *fdf, char *filename);
 int					ft_key_hook(int keycode, t_env *fdf);
 void				bresenham(t_env *fdf, int color);
 int					ft_link_points(t_env *fdf);
-int					ft_3d_2d(t_env *fdf);
+void				ft_ortho(t_env *fdf);
 //void				ft_rotate_z(t_env *fdf, double val);
 int					ft_reprint(t_env *fdf);
 void				ft_iso(t_env *fdf);
-void				ft_color(t_env *fdf,long color);
+void				ft_color_fill(t_env *fdf, char *split, int x, int y);
+void				ft_color_choice(t_env *fdf);
 int					ft_ahextoi(char *str);
+t_pro				**ft_malloc_t_pro(t_env *fdf);
 
 #endif

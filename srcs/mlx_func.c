@@ -6,29 +6,13 @@
 /*   By: jcanteau <jcanteau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/08 14:10:29 by jcanteau          #+#    #+#             */
-/*   Updated: 2019/10/14 19:58:29 by jcanteau         ###   ########.fr       */
+/*   Updated: 2019/10/15 16:53:07 by jcanteau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fdf.h"
 
-static t_pro	**ft_malloc_t_pro(t_env *fdf)
-{
-	t_pro		**vtab;
-	int			r;
 
-	if ((vtab = (t_pro **)ft_memalloc(sizeof(t_pro *) * fdf->map.nbl)) == NULL)
-		return (NULL);
-	r = 0;
-	while (r < fdf->map.nbl)
-	{
-		if ((vtab[r] = (t_pro *)ft_memalloc(sizeof(t_pro)
-						* fdf->map.nbcol)) == NULL)
-			return (NULL);
-		r++;
-	}
-	return (vtab);
-}
 
 int				ft_mlx(t_env *fdf)
 {
@@ -42,8 +26,6 @@ int				ft_mlx(t_env *fdf)
 	fdf->data = (int *)mlx_get_data_addr(fdf->img_ptr, &fdf->bpp,
 											&fdf->size_l, &fdf->endian);
 	mlx_hook(fdf->win_ptr, 2, 0, ft_key_hook, fdf);
-	if ((fdf->pro = ft_malloc_t_pro(fdf)) == NULL)
-		return (-1);
 	if (ft_link_points(fdf) == -1)
 		return (-1);
 	mlx_put_image_to_window(fdf->mlx_ptr, fdf->win_ptr, fdf->img_ptr, 0, 0);

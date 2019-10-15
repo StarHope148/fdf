@@ -6,14 +6,15 @@
 #    By: jcanteau <jcanteau@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/02 11:22:48 by jcanteau          #+#    #+#              #
-#    Updated: 2019/10/14 20:37:36 by jcanteau         ###   ########.fr        #
+#    Updated: 2019/10/15 17:08:45 by jcanteau         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = fdf
 
 INC_NAME += fdf.h
-INC_NAME += keys_define.h
+INC_NAME += keys.h
+INC_NAME += colors.h
 
 SRC_NAME += main.c
 SRC_NAME += fdf.c

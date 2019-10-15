@@ -6,7 +6,7 @@
 /*   By: jcanteau <jcanteau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/08 15:41:09 by jcanteau          #+#    #+#             */
-/*   Updated: 2019/10/15 19:27:49 by jcanteau         ###   ########.fr       */
+/*   Updated: 2019/10/15 19:44:21 by jcanteau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,29 @@
 
 void	ft_move(int keycode, t_env *fdf)
 {
-	if (keycode == LEFT_ARROW)
-		fdf->cx -= 4;
-	else if (keycode == RIGHT_ARROW)
-		fdf->cx += 4;
-	else if (keycode == UP_ARROW)
-		fdf->cy -= 4;
-	else if (keycode == DOWN_ARROW)
-		fdf->cy += 4;
+
+	if (fdf->projection_mod == 1)
+	{
+		if (keycode == LEFT_ARROW)
+			fdf->cx -= 10;
+		else if (keycode == RIGHT_ARROW)
+			fdf->cx += 10;
+		else if (keycode == UP_ARROW)
+			fdf->cy -= 10;
+		else if (keycode == DOWN_ARROW)
+			fdf->cy += 10;
+	}
+	else if (fdf->projection_mod == 0)
+	{
+		if (keycode == LEFT_ARROW)
+			fdf->cx -= 4;
+		else if (keycode == RIGHT_ARROW)
+			fdf->cx += 4;
+		else if (keycode == UP_ARROW)
+			fdf->cy -= 4;
+		else if (keycode == DOWN_ARROW)
+			fdf->cy += 4;
+	}
 }
 
 void	ft_zoom(int keycode, t_env *fdf)

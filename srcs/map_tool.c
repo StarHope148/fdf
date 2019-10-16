@@ -6,7 +6,7 @@
 /*   By: jcanteau <jcanteau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/16 15:32:45 by jcanteau          #+#    #+#             */
-/*   Updated: 2019/10/16 15:33:12 by jcanteau         ###   ########.fr       */
+/*   Updated: 2019/10/16 17:26:38 by jcanteau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,10 +44,12 @@ int				ft_ahextoi(char *str)
 	return ((int)result);
 }
 
-void			ft_color_fill(t_env *fdf, char *split, int x, int y)
+int				ft_color_fill(t_env *fdf, char *split, int x, int y)
 {
 	if (ft_strchr(split, ',') != NULL)
 	{
+		if (ft_strchr(split, 'x') == NULL)
+			return (-1);
 		fdf->map.tab[y][x].defcolor = ft_ahextoi(ft_strchr(split, 'x') + 1);
 		fdf->map.tab[y][x].color = fdf->map.tab[y][x].defcolor;
 	}
@@ -56,4 +58,5 @@ void			ft_color_fill(t_env *fdf, char *split, int x, int y)
 		fdf->map.tab[y][x].color = WHITE;
 		fdf->map.tab[y][x].defcolor = WHITE;
 	}
+	return (0);
 }

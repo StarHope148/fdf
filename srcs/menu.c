@@ -6,11 +6,24 @@
 /*   By: jcanteau <jcanteau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/15 19:17:05 by jcanteau          #+#    #+#             */
-/*   Updated: 2019/10/16 15:37:22 by jcanteau         ###   ########.fr       */
+/*   Updated: 2019/10/16 16:23:30 by jcanteau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fdf.h"
+
+void		ft_print_color_setup(t_env *fdf)
+{
+	if (fdf->colormod == DEFAULT_MAP_COLOR)
+		mlx_string_put(fdf->mlx_ptr, fdf->win_ptr, 20, 20, WHITE,
+						"Color setup: Default map color");
+	else if (fdf->colormod == CARTOGARPHY)
+		mlx_string_put(fdf->mlx_ptr, fdf->win_ptr, 20, 20, WHITE,
+						"Color setup: Cartographic visualization");
+	else if (fdf->colormod == CONTRAST)
+		mlx_string_put(fdf->mlx_ptr, fdf->win_ptr, 20, 20, WHITE,
+			"Color setup: Contrast leveling [<0 cyan | =0 white | >0 green]");
+}
 
 int			ft_backmenu(t_env *fdf)
 {
@@ -47,7 +60,7 @@ int			ft_print_menu(t_env *fdf)
 	mlx_string_put(fdf->mlx_ptr, fdf->win_ptr, fdf->width - 350, 100, BLACK,
 					"| switch color              [3] |");
 	mlx_string_put(fdf->mlx_ptr, fdf->win_ptr, fdf->width - 350, 120, BLACK,
-					"| switch projection         [I] |");
+					"| switch projection         [0] |");
 	mlx_string_put(fdf->mlx_ptr, fdf->win_ptr, fdf->width - 350, 140, BLACK,
 					"| rotate X axis         [9]/[6] |");
 	mlx_string_put(fdf->mlx_ptr, fdf->win_ptr, fdf->width - 350, 160, BLACK,

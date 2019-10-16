@@ -6,7 +6,7 @@
 #    By: jcanteau <jcanteau@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/02 11:22:48 by jcanteau          #+#    #+#              #
-#    Updated: 2019/10/16 15:33:25 by jcanteau         ###   ########.fr        #
+#    Updated: 2019/10/16 16:54:41 by jcanteau         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,7 @@ SRC_NAME += fdf.c
 SRC_NAME += bresenham.c
 SRC_NAME += check.c
 SRC_NAME += create_map.c
-SRC_NAME += mlx_func.c
+SRC_NAME += mlx_start_up.c
 SRC_NAME += key_hook.c
 SRC_NAME += image.c
 SRC_NAME += projection.c
@@ -29,6 +29,7 @@ SRC_NAME += color.c
 SRC_NAME += menu.c
 SRC_NAME += init_tool.c
 SRC_NAME += map_tool.c
+SRC_NAME += controls.c
 
 OBJ_NAME = $(SRC_NAME:.c=.o)
 

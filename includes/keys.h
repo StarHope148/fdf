@@ -6,7 +6,7 @@
 /*   By: jcanteau <jcanteau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/04 17:46:47 by jcanteau          #+#    #+#             */
-/*   Updated: 2019/10/15 17:09:26 by jcanteau         ###   ########.fr       */
+/*   Updated: 2019/10/16 16:02:44 by jcanteau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@
 # define Y 16
 # define Z 6
 
+# define ZERO_NUM_PAD 82
 # define ONE_NUM_PAD 83
 # define TWO_NUM_PAD 84
 # define THREE_NUM_PAD 85
@@ -59,7 +60,5 @@
 # define RIGHT_ARROW 124
 # define DOWN_ARROW 125
 # define UP_ARROW 126
-
-# define ARROW 123 || 124 || 125 || 126
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: jcanteau <jcanteau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/04 14:26:35 by jcanteau          #+#    #+#             */
-/*   Updated: 2019/10/16 15:36:45 by jcanteau         ###   ########.fr       */
+/*   Updated: 2019/10/16 17:26:32 by jcanteau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,17 +24,20 @@
 
 # define CX_O 250
 # define CY_O 150
+# define MOVE_SPEED 15
 
-/* typedef struct 		s_vec2i
+typedef enum		e_colormod
 {
-	int	x;
-	int y;
-}					t_vec2i;
+	DEFAULT_MAP_COLOR,
+	CARTOGARPHY,
+	CONTRAST
+}					t_colormod;
 
-t_vec2i		vec2i(int x, int y)
+typedef enum		e_projection
 {
-	return ((t_vec2i){x, y})
-} */
+	ORTHO,
+	ISO
+}					t_projection;
 
 typedef struct		s_menu
 {
@@ -112,7 +115,6 @@ typedef struct		s_env
 	t_map			map;
 	t_pro			**pro;
 	t_pix			pix;
-	//t_vec2i			vec0
 }					t_env;
 
 int					ft_error(void);
@@ -127,7 +129,7 @@ int					ft_link_points(t_env *fdf);
 void				ft_ortho(t_env *fdf);
 int					ft_reprint(t_env *fdf);
 void				ft_iso(t_env *fdf);
-void				ft_color_fill(t_env *fdf, char *split, int x, int y);
+int					ft_color_fill(t_env *fdf, char *split, int x, int y);
 void				ft_color_choice(t_env *fdf);
 int					ft_ahextoi(char *str);
 t_pro				**ft_malloc_t_pro(t_env *fdf);
@@ -137,5 +139,11 @@ void				ft_init_map(t_env *fdf);
 void				ft_init_display(t_env *fdf);
 void				ft_init_bresenham(t_env *fdf);
 void				ft_init_segment_drawing_coordinate(t_env *fdf);
+void				ft_print_color_setup(t_env *fdf);
+void				ft_move(int keycode, t_env *fdf);
+void				ft_zoom(int keycode, t_env *fdf);
+void				ft_distance(int keycode, t_env *fdf);
+void				ft_elevation(int keycode, t_env *fdf);
+void				ft_rotate(int keycode, t_env *fdf);
 
 #endif

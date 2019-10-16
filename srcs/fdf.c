@@ -6,7 +6,7 @@
 /*   By: jcanteau <jcanteau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/04 15:04:58 by jcanteau          #+#    #+#             */
-/*   Updated: 2019/10/16 15:44:56 by jcanteau         ###   ########.fr       */
+/*   Updated: 2019/10/16 17:14:03 by jcanteau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,12 @@ void		ft_choose_focal_lenght(t_env *fdf)
 		fdf->fl = 1000;
 	else if (ref < 50000)
 		fdf->fl = 500;
-	else if (ref > 100000)
+	else if (ref < 80000)
+		fdf->fl = 300;
+	else if (ref < 100000)
 		fdf->fl = 200;
+	else if (ref >= 100000 )
+		fdf->fl = 50;
 
 }
 

@@ -6,7 +6,7 @@
 /*   By: jcanteau <jcanteau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/09 18:20:17 by jcanteau          #+#    #+#             */
-/*   Updated: 2019/10/15 19:28:56 by jcanteau         ###   ########.fr       */
+/*   Updated: 2019/10/16 17:19:22 by jcanteau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ int		ft_reprint(t_env *fdf)
 	ft_link_points(fdf);
 	mlx_put_image_to_window(fdf->mlx_ptr, fdf->win_ptr, fdf->img_ptr, 0, 0);
 	ft_print_menu(fdf);
+	ft_print_color_setup(fdf);
 	return (0);
 }
 

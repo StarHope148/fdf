@@ -6,7 +6,7 @@
 /*   By: jcanteau <jcanteau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/09 18:20:17 by jcanteau          #+#    #+#             */
-/*   Updated: 2019/10/16 17:19:22 by jcanteau         ###   ########.fr       */
+/*   Updated: 2019/10/16 18:28:23 by jcanteau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,24 @@ int		ft_reprint(t_env *fdf)
 	ft_print_menu(fdf);
 	ft_print_color_setup(fdf);
 	return (0);
+}
+
+void	ft_link_right(t_env *fdf, int r, int c)
+{
+	fdf->pix.xcur = fdf->pro[r][c].px;
+	fdf->pix.ycur = fdf->pro[r][c].py;
+	fdf->pix.xnext = fdf->pro[r][c + 1].px;
+	fdf->pix.ynext = fdf->pro[r][c + 1].py;
+	bresenham(fdf, fdf->map.tab[r][c].color);
+}
+
+void	ft_link_down(t_env *fdf, int r, int c)
+{
+	fdf->pix.xcur = fdf->pro[r][c].px;
+	fdf->pix.ycur = fdf->pro[r][c].py;
+	fdf->pix.xnext = fdf->pro[r + 1][c].px;
+	fdf->pix.ynext = fdf->pro[r + 1][c].py;
+	bresenham(fdf, fdf->map.tab[r][c].color);
 }
 
 int		ft_link_points(t_env *fdf)
@@ -43,21 +61,9 @@ int		ft_link_points(t_env *fdf)
 		while (c < fdf->map.nbcol)
 		{
 			if (c + 1 < fdf->map.nbcol)
-			{
-				fdf->pix.xcur = fdf->pro[r][c].px;
-				fdf->pix.ycur = fdf->pro[r][c].py;
-				fdf->pix.xnext = fdf->pro[r][c + 1].px;
-				fdf->pix.ynext = fdf->pro[r][c + 1].py;
-				bresenham(fdf, fdf->map.tab[r][c].color);
-			}
+				ft_link_right(fdf, r, c);
 			if (r + 1 < fdf->map.nbl)
-			{
-				fdf->pix.xcur = fdf->pro[r][c].px;
-				fdf->pix.ycur = fdf->pro[r][c].py;
-				fdf->pix.xnext = fdf->pro[r + 1][c].px;
-				fdf->pix.ynext = fdf->pro[r + 1][c].py;
-				bresenham(fdf, fdf->map.tab[r][c].color);
-			}
+				ft_link_down(fdf, r, c);
 			c++;
 		}
 		r++;

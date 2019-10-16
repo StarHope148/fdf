@@ -6,12 +6,11 @@
 /*   By: jcanteau <jcanteau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/04 15:04:58 by jcanteau          #+#    #+#             */
-/*   Updated: 2019/10/16 17:14:03 by jcanteau         ###   ########.fr       */
+/*   Updated: 2019/10/16 18:30:22 by jcanteau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fdf.h"
-
 
 void		ft_init_struct(t_env *fdf)
 {
@@ -34,9 +33,8 @@ void		ft_init_struct(t_env *fdf)
 void		ft_choose_focal_lenght(t_env *fdf)
 {
 	long	ref;
-	
+
 	ref = fdf->map.nbl * fdf->map.nbcol;
-	
 	if (ref < 250)
 		fdf->fl = 4000;
 	else if (ref < 500)
@@ -48,10 +46,11 @@ void		ft_choose_focal_lenght(t_env *fdf)
 	else if (ref < 80000)
 		fdf->fl = 300;
 	else if (ref < 100000)
+		fdf->fl = 250;
+	else if (ref < 150000)
 		fdf->fl = 200;
-	else if (ref >= 100000 )
+	else if (ref >= 150000)
 		fdf->fl = 50;
-
 }
 
 int			ft_fdf_init(char *filename)
@@ -61,12 +60,9 @@ int			ft_fdf_init(char *filename)
 	ft_init_struct(&fdf);
 	if (ft_create_map(&fdf, filename) == -1)
 		return (-1);
-	printf("nbcol = %d\tnbl = %d\n", fdf.map.nbcol, fdf.map.nbl);			//DEBUG
+	//printf("nbcol = %d\tnbl = %d\n", fdf.map.nbcol, fdf.map.nbl);			//DEBUG
 	ft_choose_focal_lenght(&fdf);
 	if (ft_mlx(&fdf) == -1)
 		return (-1);
 	return (0);
 }
-//create the array of t_vertex
-//display it with MLX
-//free it

@@ -6,7 +6,7 @@
 /*   By: jcanteau <jcanteau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/15 19:17:05 by jcanteau          #+#    #+#             */
-/*   Updated: 2019/10/16 16:23:30 by jcanteau         ###   ########.fr       */
+/*   Updated: 2019/10/16 18:22:37 by jcanteau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,9 +58,9 @@ int			ft_print_menu(t_env *fdf)
 	mlx_string_put(fdf->mlx_ptr, fdf->win_ptr, fdf->width - 350, 80, BLACK,
 					"| elevate               [7]/[8] |");
 	mlx_string_put(fdf->mlx_ptr, fdf->win_ptr, fdf->width - 350, 100, BLACK,
-					"| switch color              [3] |");
+					"| switch COLOR              [3] |");
 	mlx_string_put(fdf->mlx_ptr, fdf->win_ptr, fdf->width - 350, 120, BLACK,
-					"| switch projection         [0] |");
+					"| switch PROJECTION         [0] |");
 	mlx_string_put(fdf->mlx_ptr, fdf->win_ptr, fdf->width - 350, 140, BLACK,
 					"| rotate X axis         [9]/[6] |");
 	mlx_string_put(fdf->mlx_ptr, fdf->win_ptr, fdf->width - 350, 160, BLACK,

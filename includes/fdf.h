@@ -6,7 +6,7 @@
 /*   By: jcanteau <jcanteau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/04 14:26:35 by jcanteau          #+#    #+#             */
-/*   Updated: 2019/10/16 17:26:32 by jcanteau         ###   ########.fr       */
+/*   Updated: 2019/10/16 17:59:25 by jcanteau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,8 +78,8 @@ typedef struct		s_pro
 
 typedef struct		s_map
 {
-	double			x;
-	double			y;
+	int				r;
+	int				c;
 	int				nbl;
 	int				nbcol;
 	t_vertex		**tab;

@@ -6,7 +6,7 @@
 /*   By: jcanteau <jcanteau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/16 15:23:19 by jcanteau          #+#    #+#             */
-/*   Updated: 2019/10/16 15:37:46 by jcanteau         ###   ########.fr       */
+/*   Updated: 2019/10/16 18:01:55 by jcanteau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void		ft_init_map(t_env *fdf)
 {
-	fdf->map.x = 0;
-	fdf->map.y = 0;
+	fdf->map.c = 0;
+	fdf->map.r = 0;
 	fdf->map.nbl = 0;
 	fdf->map.nbcol = 0;
 	fdf->map.tab = NULL;

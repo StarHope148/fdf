@@ -6,7 +6,7 @@
 /*   By: jcanteau <jcanteau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/16 16:52:55 by jcanteau          #+#    #+#             */
-/*   Updated: 2019/10/16 16:53:38 by jcanteau         ###   ########.fr       */
+/*   Updated: 2019/10/16 17:47:06 by jcanteau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 void	ft_move(int keycode, t_env *fdf)
 {
-
 	if (fdf->projection_mod == ISO)
 	{
 		if (keycode == LEFT_ARROW)

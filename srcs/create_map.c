@@ -6,7 +6,7 @@
 /*   By: jcanteau <jcanteau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/06 14:41:21 by jcanteau          #+#    #+#             */
-/*   Updated: 2019/10/16 17:29:30 by jcanteau         ###   ########.fr       */
+/*   Updated: 2019/10/16 18:18:12 by jcanteau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,57 +17,45 @@ static t_vertex		**ft_malloc_tab(t_env *fdf)
 	t_vertex	**vtab;
 	int			i;
 
-	if ((vtab = (t_vertex **)ft_memalloc(sizeof(t_vertex *) * fdf->map.nbl)) == NULL)
+	if ((vtab = (t_vertex **)ft_memalloc(sizeof(t_vertex *)
+			* fdf->map.nbl)) == NULL)
 		return (NULL);
 	i = 0;
 	while (i < fdf->map.nbl)
 	{
-		if ((vtab[i] = (t_vertex *)ft_memalloc(sizeof(t_vertex) * fdf->map.nbcol)) == NULL)
+		if ((vtab[i] = (t_vertex *)ft_memalloc(sizeof(t_vertex)
+				* fdf->map.nbcol)) == NULL)
 			return (NULL);
 		i++;
 	}
 	return (vtab);
 }
 
-int					ft_fill_map(t_env *fdf, char *filename)
+int					ft_fill_map(t_env *fdf, int fd)
 {
 	char		*line;
 	char		**split;
-	int			fd;
-	int			x;
-	int			y;
 
-	fd = 0;
-	if ((fd = open(filename, O_RDONLY)) == -1)
-		return (-1);
-	if ((fdf->map.tab = ft_malloc_tab(fdf)) == NULL)
-		return (-1);
-	y = 0;
 	while (get_next_line(fd, &line) == 1)
 	{
-		//printf("FILL = %s\n", line);						//DEBUG
 		split = NULL;
 		if ((split = ft_strsplit(line, ' ')) == NULL)
 			return (-1);
-		x = 0;
-		while (x < fdf->map.nbcol)
+		fdf->map.c = 0;
+		while (fdf->map.c < fdf->map.nbcol)
 		{
-			fdf->map.tab[y][x].x = x;
-			fdf->map.tab[y][x].y = y;
-			fdf->map.tab[y][x].z = ft_atoi(split[x]);
-			if (ft_color_fill(fdf, split[x], x, y) == -1)
+			fdf->map.tab[fdf->map.r][fdf->map.c].x = fdf->map.c;
+			fdf->map.tab[fdf->map.r][fdf->map.c].y = fdf->map.r;
+			fdf->map.tab[fdf->map.r][fdf->map.c].z = ft_atoi(split[fdf->map.c]);
+			if (ft_color_fill(fdf, split[fdf->map.c], fdf->map.c, fdf->map.r)
+					== -1)
 				return (-1);
-			free(split[x]);
-			//printf("tab[%d][%d]:\tx = %d | y = %d | z = %d | color = %d\n", y, x, fdf->map.tab[y][x].x, fdf->map.tab[y][x].y, fdf->map.tab[y][x].z, fdf->map.tab[y][x].color);	//DEBUG
-			x++;
+			free(split[fdf->map.c]);
+			fdf->map.c++;
 		}
 		free(split);
-		y++;
+		fdf->map.r++;
 	}
-	if (y != fdf->map.nbl)
-		return (-1);
-	if ((close(fd)) == -1)
-		return (-1);
 	return (0);
 }
 
@@ -93,12 +81,22 @@ int					ft_count_lines_columns(t_env *fdf, char *filename)
 	return (0);
 }
 
-int			ft_create_map(t_env *fdf, char *filename)
+int					ft_create_map(t_env *fdf, char *filename)
 {
+	int			fd;
+
 	if ((ft_count_lines_columns(fdf, filename)) == -1)
 		return (-1);
-	//printf("---------------------------------nb rows = %d\tnb columns = %d\n", fdf->map.nbl, fdf->map.nbcol);			//DEBUG
-	if ((ft_fill_map(fdf, filename)) == -1)
+	if ((fdf->map.tab = ft_malloc_tab(fdf)) == NULL)
+		return (-1);
+	fd = 0;
+	if ((fd = open(filename, O_RDONLY)) == -1)
+		return (-1);
+	if ((ft_fill_map(fdf, fd)) == -1)
+		return (-1);
+	if (fdf->map.r != fdf->map.nbl)
+		return (-1);
+	if ((close(fd)) == -1)
 		return (-1);
 	return (0);
 }

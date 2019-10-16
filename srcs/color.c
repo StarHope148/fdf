@@ -6,13 +6,13 @@
 /*   By: jcanteau <jcanteau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/14 20:32:58 by jcanteau          #+#    #+#             */
-/*   Updated: 2019/10/16 17:17:47 by jcanteau         ###   ########.fr       */
+/*   Updated: 2019/10/16 17:45:29 by jcanteau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fdf.h"
 
-void			ft_contrast_level(t_env* fdf)
+void			ft_contrast_level(t_env *fdf)
 {
 	int				r;
 	int				c;
@@ -53,6 +53,18 @@ void			ft_default_color(t_env *fdf)
 	}
 }
 
+void			ft_map_real_2(t_env *fdf, int r, int c)
+{
+	if (fdf->map.tab[r][c].z >= 10 && fdf->map.tab[r][c].z < 20)
+		fdf->map.tab[r][c].color = DARK_GREEN;
+	else if (fdf->map.tab[r][c].z >= 20 && fdf->map.tab[r][c].z < 40)
+		fdf->map.tab[r][c].color = OLIVE;
+	else if (fdf->map.tab[r][c].z >= 40 && fdf->map.tab[r][c].z < 80)
+		fdf->map.tab[r][c].color = BROWN;
+	else if (fdf->map.tab[r][c].z >= 80)
+		fdf->map.tab[r][c].color = WHITE;
+}
+
 void			ft_map_real(t_env *fdf)
 {
 	int				r;
@@ -70,14 +82,8 @@ void			ft_map_real(t_env *fdf)
 				fdf->map.tab[r][c].color = SAND;
 			else if (fdf->map.tab[r][c].z >= 2 && fdf->map.tab[r][c].z < 10)
 				fdf->map.tab[r][c].color = GREEN;
-			else if (fdf->map.tab[r][c].z >= 10 && fdf->map.tab[r][c].z < 20)
-				fdf->map.tab[r][c].color = DARK_GREEN;
-			else if (fdf->map.tab[r][c].z >= 20 && fdf->map.tab[r][c].z < 40)
-				fdf->map.tab[r][c].color = OLIVE;
-			else if (fdf->map.tab[r][c].z >= 40 && fdf->map.tab[r][c].z < 80)
-				fdf->map.tab[r][c].color = BROWN;
-			else if (fdf->map.tab[r][c].z >= 80)
-				fdf->map.tab[r][c].color = WHITE;
+			else
+				ft_map_real_2(fdf, r, c);
 			c++;
 		}
 		r++;

@@ -6,7 +6,7 @@
 /*   By: jcanteau <jcanteau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/15 15:51:56 by jcanteau          #+#    #+#             */
-/*   Updated: 2019/10/15 17:27:57 by jcanteau         ###   ########.fr       */
+/*   Updated: 2019/10/16 15:47:37 by jcanteau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,5 +32,6 @@
 # define NAVY 0x000080
 # define BROWN 0x663300
 # define SAND 0xF2D16B
+# define DARK_GREEN 0x006400
 
 #endif

@@ -6,26 +6,53 @@
 /*   By: jcanteau <jcanteau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/15 19:17:05 by jcanteau          #+#    #+#             */
-/*   Updated: 2019/10/15 19:37:31 by jcanteau         ###   ########.fr       */
+/*   Updated: 2019/10/16 15:37:22 by jcanteau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fdf.h"
 
-void		ft_print_menu(t_env *fdf)
+int			ft_backmenu(t_env *fdf)
 {
-	mlx_string_put(fdf->mlx_ptr, fdf->win_ptr, fdf->width - 220, 20, WHITE,
-					"====================");
-	mlx_string_put(fdf->mlx_ptr, fdf->win_ptr, fdf->width - 220, 40, WHITE,
-					"| move    [arrows] |");
-	mlx_string_put(fdf->mlx_ptr, fdf->win_ptr, fdf->width - 220, 60, WHITE,
-					"| scale    [1]/[2] |");
-	mlx_string_put(fdf->mlx_ptr, fdf->win_ptr, fdf->width - 220, 80, WHITE,
-					"| elevate  [7]/[8] |");
-	mlx_string_put(fdf->mlx_ptr, fdf->win_ptr, fdf->width - 220, 100, WHITE,
-					"| switch color [3] |");
-	mlx_string_put(fdf->mlx_ptr, fdf->win_ptr, fdf->width - 220, 120, WHITE,
-					"| move    [arrows] |");
-	mlx_string_put(fdf->mlx_ptr, fdf->win_ptr, fdf->width - 220, 140, WHITE,
-					"====================");
+	int			i;
+
+	fdf->menu.backmenu_ptr = mlx_new_image(fdf->mlx_ptr, 340, 180);
+	if (fdf->menu.backmenu_ptr == NULL)
+		return (-1);
+	fdf->menu.menu_data = (int *)mlx_get_data_addr(fdf->menu.backmenu_ptr,
+										&fdf->bpp, &fdf->size_l, &fdf->endian);
+	i = 0;
+	while (i < 340 * 180)
+	{
+		fdf->menu.menu_data[i] = fdf->menu.color;
+		i++;
+	}
+	mlx_put_image_to_window(fdf->mlx_ptr, fdf->win_ptr, fdf->menu.backmenu_ptr,
+							fdf->width - 355, 20);
+	return (0);
+}
+
+int			ft_print_menu(t_env *fdf)
+{
+	if (ft_backmenu(fdf) == -1)
+		return (-1);
+	mlx_string_put(fdf->mlx_ptr, fdf->win_ptr, fdf->width - 350, 20, BLACK,
+					"---------------------------------");
+	mlx_string_put(fdf->mlx_ptr, fdf->win_ptr, fdf->width - 350, 40, BLACK,
+					"| move                 [arrows] |");
+	mlx_string_put(fdf->mlx_ptr, fdf->win_ptr, fdf->width - 350, 60, BLACK,
+					"| scale                 [1]/[2] |");
+	mlx_string_put(fdf->mlx_ptr, fdf->win_ptr, fdf->width - 350, 80, BLACK,
+					"| elevate               [7]/[8] |");
+	mlx_string_put(fdf->mlx_ptr, fdf->win_ptr, fdf->width - 350, 100, BLACK,
+					"| switch color              [3] |");
+	mlx_string_put(fdf->mlx_ptr, fdf->win_ptr, fdf->width - 350, 120, BLACK,
+					"| switch projection         [I] |");
+	mlx_string_put(fdf->mlx_ptr, fdf->win_ptr, fdf->width - 350, 140, BLACK,
+					"| rotate X axis         [9]/[6] |");
+	mlx_string_put(fdf->mlx_ptr, fdf->win_ptr, fdf->width - 350, 160, BLACK,
+					"| move                 [arrows] |");
+	mlx_string_put(fdf->mlx_ptr, fdf->win_ptr, fdf->width - 350, 180, BLACK,
+					"---------------------------------");
+	return(0);
 }

@@ -6,11 +6,12 @@
 /*   By: jcanteau <jcanteau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/04 15:04:58 by jcanteau          #+#    #+#             */
-/*   Updated: 2019/10/15 19:14:36 by jcanteau         ###   ########.fr       */
+/*   Updated: 2019/10/16 15:44:56 by jcanteau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fdf.h"
+
 
 void		ft_init_struct(t_env *fdf)
 {
@@ -23,30 +24,11 @@ void		ft_init_struct(t_env *fdf)
 	fdf->bpp = 0;
 	fdf->size_l = 0;
 	fdf->endian = 0;
-	fdf->map.x = 0;
-	fdf->map.y = 0;
-	fdf->map.nbl = 0;
-	fdf->map.nbcol = 0;
-	fdf->map.tab = NULL;
-	fdf->projection_mod = 0;
-	fdf->cx = CX_O;
-	fdf->cy = CY_O;
-	fdf->fl = 4000;
-	fdf->el = 0.1;
-	fdf->dist = 50;
-	fdf->colormod = 0;
-	fdf->ang = 0.523599;
-	fdf->pro = NULL;
-	fdf->dx = 0;
-	fdf->sx = 0;
-	fdf->dy = 0;
-	fdf->sy = 0;
-	fdf->err = 0;
-	fdf->e2 = 0;
-	fdf->pix.xcur = 0;
-	fdf->pix.ycur = 0;
-	fdf->pix.xnext = 0;
-	fdf->pix.ynext = 0;
+	ft_init_map(fdf);
+	ft_init_display(fdf);
+	ft_init_menu(fdf);
+	ft_init_bresenham(fdf);
+	ft_init_segment_drawing_coordinate(fdf);
 }
 
 void		ft_choose_focal_lenght(t_env *fdf)
@@ -57,8 +39,12 @@ void		ft_choose_focal_lenght(t_env *fdf)
 	
 	if (ref < 250)
 		fdf->fl = 4000;
+	else if (ref < 500)
+		fdf->fl = 3500;
 	else if (ref < 15000)
 		fdf->fl = 1000;
+	else if (ref < 50000)
+		fdf->fl = 500;
 	else if (ref > 100000)
 		fdf->fl = 200;
 

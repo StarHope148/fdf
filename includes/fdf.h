@@ -6,7 +6,7 @@
 /*   By: jcanteau <jcanteau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/04 14:26:35 by jcanteau          #+#    #+#             */
-/*   Updated: 2019/10/15 19:31:18 by jcanteau         ###   ########.fr       */
+/*   Updated: 2019/10/16 15:36:45 by jcanteau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@
 # include "keys.h"
 # include "colors.h"
 
-# define CX_O 200
-# define CY_O 100
+# define CX_O 250
+# define CY_O 150
 
 /* typedef struct 		s_vec2i
 {
@@ -35,6 +35,17 @@ t_vec2i		vec2i(int x, int y)
 {
 	return ((t_vec2i){x, y})
 } */
+
+typedef struct		s_menu
+{
+	void			*backmenu_ptr;
+	int				*menu_data;
+	int				width;
+	int				height;
+	int				pos_x;
+	int				pos_y;
+	int				color;
+}					t_menu;
 
 typedef struct		s_pix
 {
@@ -77,6 +88,7 @@ typedef struct		s_env
 	void			*win_ptr;
 	void			*img_ptr;
 	int				*data;
+
 	int				width;
 	int				height;
 	int				bpp;
@@ -96,10 +108,11 @@ typedef struct		s_env
 	int				sy;
 	int				err;
 	int				e2;
-	//t_vec2i			vec0
+	t_menu			menu;
 	t_map			map;
 	t_pro			**pro;
 	t_pix			pix;
+	//t_vec2i			vec0
 }					t_env;
 
 int					ft_error(void);
@@ -112,13 +125,17 @@ int					ft_key_hook(int keycode, t_env *fdf);
 void				bresenham(t_env *fdf, int color);
 int					ft_link_points(t_env *fdf);
 void				ft_ortho(t_env *fdf);
-//void				ft_rotate_z(t_env *fdf, double val);
 int					ft_reprint(t_env *fdf);
 void				ft_iso(t_env *fdf);
 void				ft_color_fill(t_env *fdf, char *split, int x, int y);
 void				ft_color_choice(t_env *fdf);
 int					ft_ahextoi(char *str);
 t_pro				**ft_malloc_t_pro(t_env *fdf);
-void				ft_print_menu(t_env *fdf);
+int					ft_print_menu(t_env *fdf);
+void				ft_init_menu(t_env *fdf);
+void				ft_init_map(t_env *fdf);
+void				ft_init_display(t_env *fdf);
+void				ft_init_bresenham(t_env *fdf);
+void				ft_init_segment_drawing_coordinate(t_env *fdf);
 
 #endif

@@ -6,7 +6,7 @@
 #    By: jcanteau <jcanteau@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/02 11:22:48 by jcanteau          #+#    #+#              #
-#    Updated: 2019/10/16 16:54:41 by jcanteau         ###   ########.fr        #
+#    Updated: 2019/10/18 15:37:55 by jcanteau         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ SRC_NAME += main.c
 SRC_NAME += fdf.c
 SRC_NAME += bresenham.c
 SRC_NAME += check.c
-SRC_NAME += create_map.c
+SRC_NAME += parse.c
 SRC_NAME += mlx_start_up.c
 SRC_NAME += key_hook.c
 SRC_NAME += image.c
@@ -70,7 +70,6 @@ clean:
 	$(RM) -rf $(OBJ_PATH)
 
 fclean: clean debug_clean
-	make clean -C $(LIB_PATH)
 	$(RM) $(LIB)
 	$(RM) $(NAME) $(NAME).ubuntu
 
@@ -84,7 +83,7 @@ debug_clean:
 	$(RM) -rf a.out a.out.DSYM
 	
 norm:
-	norminette $(SRC) $(HEAD)
+	norminette $(SRC) $(HEAD) $(LIB_PATH)
 
 ubuntu: $(OBJ)
 	make -C $(LIB_PATH)

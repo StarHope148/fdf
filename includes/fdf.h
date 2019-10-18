@@ -6,7 +6,7 @@
 /*   By: jcanteau <jcanteau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/04 14:26:35 by jcanteau          #+#    #+#             */
-/*   Updated: 2019/10/18 14:53:28 by jcanteau         ###   ########.fr       */
+/*   Updated: 2019/10/18 15:57:45 by jcanteau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,9 +71,6 @@ typedef struct		s_pro
 {
 	int				px;
 	int				py;
-	double			xx;
-	double			yy;
-	double			zz;
 }					t_pro;
 
 typedef struct		s_map
@@ -127,7 +124,7 @@ int					ft_key_hook(int keycode, t_env *fdf);
 void				bresenham(t_env *fdf, int color);
 int					ft_link_points(t_env *fdf);
 void				ft_ortho(t_env *fdf);
-int					ft_reprint(t_env *fdf);
+int					ft_print(t_env *fdf);
 void				ft_iso(t_env *fdf);
 int					ft_color_fill(t_env *fdf, char *split, int x, int y);
 void				ft_color_choice(t_env *fdf);

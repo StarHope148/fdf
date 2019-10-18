@@ -6,7 +6,7 @@
 /*   By: jcanteau <jcanteau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/16 16:52:55 by jcanteau          #+#    #+#             */
-/*   Updated: 2019/10/16 17:47:06 by jcanteau         ###   ########.fr       */
+/*   Updated: 2019/10/18 15:44:21 by jcanteau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,6 @@ void	ft_rotate(int keycode, t_env *fdf)
 {
 	if (keycode == NINE_NUM_PAD)
 		fdf->ang += 0.01;
-	else
+	else if (keycode == SIX_NUM_PAD)
 		fdf->ang -= 0.01;
 }

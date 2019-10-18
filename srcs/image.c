@@ -6,15 +6,16 @@
 /*   By: jcanteau <jcanteau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/09 18:20:17 by jcanteau          #+#    #+#             */
-/*   Updated: 2019/10/16 18:28:23 by jcanteau         ###   ########.fr       */
+/*   Updated: 2019/10/18 15:57:27 by jcanteau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fdf.h"
 
-int		ft_reprint(t_env *fdf)
+int		ft_print(t_env *fdf)
 {
-	mlx_destroy_image(fdf->mlx_ptr, fdf->img_ptr);
+	if (fdf->img_ptr != NULL)
+		mlx_destroy_image(fdf->mlx_ptr, fdf->img_ptr);
 	fdf->img_ptr = mlx_new_image(fdf->mlx_ptr, fdf->width, fdf->height);
 	fdf->data = (int *)mlx_get_data_addr(fdf->img_ptr, &fdf->bpp,
 											&fdf->size_l, &fdf->endian);

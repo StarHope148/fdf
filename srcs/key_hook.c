@@ -6,7 +6,7 @@
 /*   By: jcanteau <jcanteau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/08 15:41:09 by jcanteau          #+#    #+#             */
-/*   Updated: 2019/10/18 15:00:03 by jcanteau         ###   ########.fr       */
+/*   Updated: 2019/10/18 15:57:31 by jcanteau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,6 @@ int		ft_key_hook(int keycode, t_env *fdf)
 	else if (keycode == THREE_NUM_PAD)
 		ft_switch_color(fdf);
 	ft_link_points(fdf);
-	ft_reprint(fdf);
+	ft_print(fdf);
 	return (0);
 }

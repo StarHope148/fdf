@@ -6,7 +6,7 @@
 /*   By: jcanteau <jcanteau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/04 15:04:58 by jcanteau          #+#    #+#             */
-/*   Updated: 2019/10/16 18:30:22 by jcanteau         ###   ########.fr       */
+/*   Updated: 2019/10/18 15:05:30 by jcanteau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,6 @@ int			ft_fdf_init(char *filename)
 	ft_init_struct(&fdf);
 	if (ft_create_map(&fdf, filename) == -1)
 		return (-1);
-	//printf("nbcol = %d\tnbl = %d\n", fdf.map.nbcol, fdf.map.nbl);			//DEBUG
 	ft_choose_focal_lenght(&fdf);
 	if (ft_mlx(&fdf) == -1)
 		return (-1);

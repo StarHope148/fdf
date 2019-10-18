@@ -6,7 +6,7 @@
 /*   By: jcanteau <jcanteau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/08 15:41:09 by jcanteau          #+#    #+#             */
-/*   Updated: 2019/10/16 16:53:41 by jcanteau         ###   ########.fr       */
+/*   Updated: 2019/10/18 15:00:03 by jcanteau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	ft_switch_color(t_env *fdf)
 		fdf->colormod = 0;
 	else
 		fdf->colormod++;
-	ft_color_choice(fdf);	
+	ft_color_choice(fdf);
 }
 
 int		ft_key_hook(int keycode, t_env *fdf)
@@ -44,11 +44,6 @@ int		ft_key_hook(int keycode, t_env *fdf)
 	}
 	else if (keycode == THREE_NUM_PAD)
 		ft_switch_color(fdf);
-	else
-	{
-		ft_putnbr(keycode);
-		ft_putstr(" ");
-	}
 	ft_link_points(fdf);
 	ft_reprint(fdf);
 	return (0);

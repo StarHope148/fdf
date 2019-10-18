@@ -6,7 +6,7 @@
 /*   By: jcanteau <jcanteau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/08 14:32:36 by jcanteau          #+#    #+#             */
-/*   Updated: 2019/10/08 14:52:55 by jcanteau         ###   ########.fr       */
+/*   Updated: 2019/10/18 15:06:39 by jcanteau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@ char		**ft_strsplit(char const *s, char c)
 	size_t	nb_word;
 	size_t	len;
 	int		i;
-
 
 	if (s == NULL)
 		return (NULL);

@@ -6,13 +6,13 @@
 /*   By: jcanteau <jcanteau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/10 17:19:32 by jcanteau          #+#    #+#             */
-/*   Updated: 2019/10/15 17:40:31 by jcanteau         ###   ########.fr       */
+/*   Updated: 2019/10/18 15:05:02 by jcanteau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fdf.h"
 
-t_pro	**ft_malloc_t_pro(t_env *fdf)
+t_pro		**ft_malloc_t_pro(t_env *fdf)
 {
 	t_pro		**vtab;
 	int			r;
@@ -71,26 +71,8 @@ void		ft_ortho(t_env *fdf)
 								+ fdf->dist)) / 100;
 			fdf->pro[r][c].py = fdf->cy + (((fdf->map.tab[r][c].y * fdf->fl)
 								+ fdf->dist)) / 100;
-			//printf("tab[%d][%d]:\tx = %d | y = %d | z = %d\t\t\t--->\tx' = %d | y' = %d\n", r, c, fdf->map.tab[r][c].x, fdf->map.tab[r][c].y, fdf->map.tab[r][c].z, fdf->pro[r][c].px, fdf->pro[r][c].py);	//DEBUG
 			c++;
 		}
 		r++;
 	}
-	//printf("-----------------------------------------------------\n");
 }
-
-/*
-px = cx + ((x * f) / (z + 2.5))
-py = cy + ((y * f) / (z + 2.5))
-
--cx et cy définissent la position centrale du rendu,
-	ils sont égaux à f dans les exemples
-
--px et py sont les coordonnées cartésiennes "compatibles
-	écran" qui serviront à dessiner les points
-
--f est le facteur d'agrandissement, 64 dans les exemples
-
--2.5 est une valeur arbitraire pour rendre Z toujours positif
-	et "avancé devant la caméra", sinon la caméra serait au centre du cube
-*/

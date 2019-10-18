@@ -6,7 +6,7 @@
 /*   By: jcanteau <jcanteau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/06 14:41:21 by jcanteau          #+#    #+#             */
-/*   Updated: 2019/10/18 17:42:35 by jcanteau         ###   ########.fr       */
+/*   Updated: 2019/10/18 18:01:41 by jcanteau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,7 +105,7 @@ int					ft_create_map(t_env *fdf, char *filename)
 		return (-1);
 	if (fdf->map.r != fdf->map.nbl)
 		return (-1);
-	printf("min = %d\tmax = %d\n", fdf->map.min, fdf->map.max);		//DEBUG
+	printf("min = %d\tmax = %d\n", fdf->map.min, fdf->map.max);						//DEBUG
 	printf("nb rows = %d\tnb columns = %d\n", fdf->map.nbl, fdf->map.nbcol);		//DEBUG
 	if ((close(fd)) == -1)
 		return (-1);

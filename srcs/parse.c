@@ -6,7 +6,7 @@
 /*   By: jcanteau <jcanteau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/06 14:41:21 by jcanteau          #+#    #+#             */
-/*   Updated: 2019/10/18 15:26:12 by jcanteau         ###   ########.fr       */
+/*   Updated: 2019/10/18 17:42:35 by jcanteau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,14 @@ static t_vertex		**ft_malloc_tab(t_env *fdf)
 	return (vtab);
 }
 
+void				ft_calc_min_max_z(t_env *fdf)
+{
+	if (fdf->map.tab[fdf->map.r][fdf->map.c].z < fdf->map.min)
+		fdf->map.min = fdf->map.tab[fdf->map.r][fdf->map.c].z;
+	if (fdf->map.tab[fdf->map.r][fdf->map.c].z > fdf->map.max)
+		fdf->map.max = fdf->map.tab[fdf->map.r][fdf->map.c].z;
+}
+
 int					ft_fill_map(t_env *fdf, int fd)
 {
 	char		*line;
@@ -50,6 +58,7 @@ int					ft_fill_map(t_env *fdf, int fd)
 			if (ft_color_fill(fdf, split[fdf->map.c], fdf->map.c, fdf->map.r)
 					== -1)
 				return (-1);
+			ft_calc_min_max_z(fdf);
 			free(split[fdf->map.c]);
 			fdf->map.c++;
 		}
@@ -96,6 +105,8 @@ int					ft_create_map(t_env *fdf, char *filename)
 		return (-1);
 	if (fdf->map.r != fdf->map.nbl)
 		return (-1);
+	printf("min = %d\tmax = %d\n", fdf->map.min, fdf->map.max);		//DEBUG
+	printf("nb rows = %d\tnb columns = %d\n", fdf->map.nbl, fdf->map.nbcol);		//DEBUG
 	if ((close(fd)) == -1)
 		return (-1);
 	return (0);

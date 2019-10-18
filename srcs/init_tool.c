@@ -6,7 +6,7 @@
 /*   By: jcanteau <jcanteau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/16 15:23:19 by jcanteau          #+#    #+#             */
-/*   Updated: 2019/10/16 18:01:55 by jcanteau         ###   ########.fr       */
+/*   Updated: 2019/10/18 16:36:43 by jcanteau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ void		ft_init_map(t_env *fdf)
 	fdf->map.r = 0;
 	fdf->map.nbl = 0;
 	fdf->map.nbcol = 0;
+	fdf->map.min = 0;
+	fdf->map.max = 0;
 	fdf->map.tab = NULL;
 }
 
@@ -29,7 +31,7 @@ void		ft_init_menu(t_env *fdf)
 	fdf->menu.height = 180;
 	fdf->menu.pos_x = 355;
 	fdf->menu.pos_y = 20;
-	fdf->menu.color = GRAY;
+	fdf->menu.color = SILVER;
 }
 
 void		ft_init_bresenham(t_env *fdf)

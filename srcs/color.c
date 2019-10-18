@@ -6,7 +6,7 @@
 /*   By: jcanteau <jcanteau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/14 20:32:58 by jcanteau          #+#    #+#             */
-/*   Updated: 2019/10/16 17:45:29 by jcanteau         ###   ########.fr       */
+/*   Updated: 2019/10/18 17:40:08 by jcanteau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,13 +55,15 @@ void			ft_default_color(t_env *fdf)
 
 void			ft_map_real_2(t_env *fdf, int r, int c)
 {
-	if (fdf->map.tab[r][c].z >= 10 && fdf->map.tab[r][c].z < 20)
+	if (fdf->map.tab[r][c].z < fdf->map.max * 0.05)
 		fdf->map.tab[r][c].color = DARK_GREEN;
-	else if (fdf->map.tab[r][c].z >= 20 && fdf->map.tab[r][c].z < 40)
+	else if (fdf->map.tab[r][c].z < fdf->map.max * 0.1)
+		fdf->map.tab[r][c].color = DARKER_GREEN;
+	else if (fdf->map.tab[r][c].z < fdf->map.max * 0.2)
 		fdf->map.tab[r][c].color = OLIVE;
-	else if (fdf->map.tab[r][c].z >= 40 && fdf->map.tab[r][c].z < 80)
+	else if (fdf->map.tab[r][c].z < fdf->map.max * 0.3)
 		fdf->map.tab[r][c].color = BROWN;
-	else if (fdf->map.tab[r][c].z >= 80)
+	else if (fdf->map.tab[r][c].z <= fdf->map.max * 1)
 		fdf->map.tab[r][c].color = WHITE;
 }
 
@@ -76,11 +78,15 @@ void			ft_map_real(t_env *fdf)
 		c = 0;
 		while (c < fdf->map.nbcol)
 		{
-			if (fdf->map.tab[r][c].z < 1)
+			if (fdf->map.tab[r][c].z < fdf->map.min * 0.7)
+				fdf->map.tab[r][c].color = DARK_BLUE;
+			else if (fdf->map.tab[r][c].z < fdf->map.min * 0.2)
+				fdf->map.tab[r][c].color = MED_BLUE;
+			else if (fdf->map.tab[r][c].z < 1)
 				fdf->map.tab[r][c].color = BLUE;
-			else if (fdf->map.tab[r][c].z == 1)
+			else if (fdf->map.tab[r][c].z < fdf->map.max * 0.005)
 				fdf->map.tab[r][c].color = SAND;
-			else if (fdf->map.tab[r][c].z >= 2 && fdf->map.tab[r][c].z < 10)
+			else if (fdf->map.tab[r][c].z < fdf->map.max * 0.02)
 				fdf->map.tab[r][c].color = GREEN;
 			else
 				ft_map_real_2(fdf, r, c);

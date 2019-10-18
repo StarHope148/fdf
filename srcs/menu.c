@@ -6,7 +6,7 @@
 /*   By: jcanteau <jcanteau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/15 19:17:05 by jcanteau          #+#    #+#             */
-/*   Updated: 2019/10/18 15:21:02 by jcanteau         ###   ########.fr       */
+/*   Updated: 2019/10/18 16:23:30 by jcanteau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ int			ft_print_menu(t_env *fdf)
 	mlx_string_put(fdf->mlx_ptr, fdf->win_ptr, fdf->width - 350, 140, BLACK,
 					"| ROTATE                [9]/[6] |");
 	mlx_string_put(fdf->mlx_ptr, fdf->win_ptr, fdf->width - 350, 160, BLACK,
-					"| MOVE                 [arrows] |");
+					"|                               |");
 	mlx_string_put(fdf->mlx_ptr, fdf->win_ptr, fdf->width - 350, 180, BLACK,
 					"---------------------------------");
 	return (0);

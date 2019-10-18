@@ -6,7 +6,7 @@
 /*   By: jcanteau <jcanteau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/04 14:26:35 by jcanteau          #+#    #+#             */
-/*   Updated: 2019/10/18 15:57:45 by jcanteau         ###   ########.fr       */
+/*   Updated: 2019/10/18 16:42:34 by jcanteau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,20 +75,25 @@ typedef struct		s_pro
 
 typedef struct		s_map
 {
+	t_vertex		**tab;
 	int				r;
 	int				c;
 	int				nbl;
 	int				nbcol;
-	t_vertex		**tab;
+	int				min;
+	int				max;
 }					t_map;
 
 typedef struct		s_env
 {
+	t_menu			menu;
+	t_map			map;
+	t_pix			pix;
+	t_pro			**pro;
 	void			*mlx_ptr;
 	void			*win_ptr;
 	void			*img_ptr;
 	int				*data;
-
 	int				width;
 	int				height;
 	int				bpp;
@@ -108,10 +113,6 @@ typedef struct		s_env
 	int				sy;
 	int				err;
 	int				e2;
-	t_menu			menu;
-	t_map			map;
-	t_pro			**pro;
-	t_pix			pix;
 }					t_env;
 
 int					ft_error(void);

@@ -6,25 +6,61 @@
 /*   By: jcanteau <jcanteau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/08 15:41:09 by jcanteau          #+#    #+#             */
-/*   Updated: 2019/10/18 15:57:31 by jcanteau         ###   ########.fr       */
+/*   Updated: 2019/10/18 20:17:41 by jcanteau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fdf.h"
 
+void	ft_exit(t_env *fdf)
+{
+	int		r;
+
+	r = 0;
+	while (r < fdf->map.nbl)
+	{
+		free(fdf->map.tab[r]);
+		free(fdf->pro[r]);
+		r++;
+	}
+	free(fdf->map.tab);
+	free(fdf->pro);
+	mlx_destroy_image(fdf->mlx_ptr, fdf->menu.backmenu_ptr);
+	mlx_destroy_image(fdf->mlx_ptr, fdf->img_ptr);
+	mlx_destroy_window(fdf->mlx_ptr, fdf->win_ptr);
+	free(fdf->mlx_ptr);
+	exit(EXIT_SUCCESS);
+}
+
 void	ft_switch_color(t_env *fdf)
 {
-	if (fdf->colormod >= 2)
-		fdf->colormod = 0;
+	if (fdf->colormod >= CONTRAST)
+		fdf->colormod = DEFAULT_MAP_COLOR;
 	else
 		fdf->colormod++;
 	ft_color_choice(fdf);
 }
 
+void	ft_switch_projection(t_env *fdf)
+{
+	if (fdf->projection_mod == ORTHO)
+	{
+		fdf->projection_mod = ISO;
+		fdf->cx = CX_O;
+		fdf->cy = CY_O; 
+	}
+	else
+	{
+		fdf->projection_mod = ORTHO;
+		fdf->cx = CX_O;
+		fdf->cy = CY_O;
+	}
+}
+
 int		ft_key_hook(int keycode, t_env *fdf)
 {
 	if (keycode == ESC)
-		exit(0);
+		ft_exit(fdf);
 	else if (keycode == LEFT_ARROW || keycode == RIGHT_ARROW ||
 				keycode == UP_ARROW || keycode == DOWN_ARROW)
 		ft_move(keycode, fdf);
@@ -36,15 +72,11 @@ int		ft_key_hook(int keycode, t_env *fdf)
 		ft_elevation(keycode, fdf);
 	else if (keycode == NINE_NUM_PAD || keycode == SIX_NUM_PAD)
 		ft_rotate(keycode, fdf);
-	else if (keycode == ZERO_NUM_PAD)
-	{
-		fdf->projection_mod = (fdf->projection_mod == 0 ? 1 : 0);
-		fdf->cx = CX_O + fdf->projection_mod * 100;
-		fdf->cy = CY_O + fdf->projection_mod * 250;
-	}
 	else if (keycode == THREE_NUM_PAD)
 		ft_switch_color(fdf);
-	ft_link_points(fdf);
-	ft_print(fdf);
+	else if (keycode == ZERO_NUM_PAD)
+		ft_switch_projection(fdf);
+	if (ft_print(fdf) == -1)
+		return (-1);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: jcanteau <jcanteau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/14 20:32:58 by jcanteau          #+#    #+#             */
-/*   Updated: 2019/10/18 17:40:08 by jcanteau         ###   ########.fr       */
+/*   Updated: 2019/10/18 20:14:28 by jcanteau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void			ft_contrast_level(t_env *fdf)
 				fdf->map.tab[r][c].color = CYAN;
 			else if (fdf->map.tab[r][c].z == 0)
 				fdf->map.tab[r][c].color = WHITE;
-			else if (fdf->map.tab[r][c].z >= 1)
+			else if (fdf->map.tab[r][c].z > 0)
 				fdf->map.tab[r][c].color = GREEN;
 			c++;
 		}

@@ -6,7 +6,7 @@
 /*   By: jcanteau <jcanteau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/04 14:26:35 by jcanteau          #+#    #+#             */
-/*   Updated: 2019/10/18 16:42:34 by jcanteau         ###   ########.fr       */
+/*   Updated: 2019/10/18 18:55:37 by jcanteau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@
 # define CX_O 250
 # define CY_O 150
 # define MOVE_SPEED 10
+# define MENU_WIDTH 340
+# define MENU_HEIGHT 180
 
 typedef enum		e_colormod
 {

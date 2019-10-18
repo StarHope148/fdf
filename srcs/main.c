@@ -6,7 +6,7 @@
 /*   By: jcanteau <jcanteau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/04 14:53:23 by jcanteau          #+#    #+#             */
-/*   Updated: 2019/10/15 16:55:05 by jcanteau         ###   ########.fr       */
+/*   Updated: 2019/10/18 18:44:55 by jcanteau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,14 @@
 
 int		ft_error(void)
 {
-	ft_putstr("an error occurred\n");
-	return (-1);
+	ft_putendl_fd("an error occured", 2);
+	return (EXIT_FAILURE);
 }
 
 int		ft_usage(void)
 {
-	ft_putstr("usage: ./fdf [map_file.fdf]\n");
-	return (-1);
+	ft_putendl_fd("usage: ./fdf [map_file.fdf]", 2);
+	return (EXIT_FAILURE);
 }
 
 int		main(int ac, char **av)

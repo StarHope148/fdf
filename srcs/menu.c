@@ -6,7 +6,7 @@
 /*   By: jcanteau <jcanteau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/15 19:17:05 by jcanteau          #+#    #+#             */
-/*   Updated: 2019/10/18 16:23:30 by jcanteau         ###   ########.fr       */
+/*   Updated: 2019/10/18 19:47:40 by jcanteau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,26 +29,28 @@ int			ft_backmenu(t_env *fdf)
 {
 	int			i;
 
-	fdf->menu.backmenu_ptr = mlx_new_image(fdf->mlx_ptr, 340, 180);
+	fdf->menu.backmenu_ptr = mlx_new_image(fdf->mlx_ptr, MENU_WIDTH,
+												MENU_HEIGHT);
 	if (fdf->menu.backmenu_ptr == NULL)
 		return (-1);
 	fdf->menu.menu_data = (int *)mlx_get_data_addr(fdf->menu.backmenu_ptr,
 										&fdf->bpp, &fdf->size_l, &fdf->endian);
 	i = 0;
-	while (i < 340 * 180)
+	while (i < MENU_WIDTH * MENU_HEIGHT)
 	{
 		fdf->menu.menu_data[i] = fdf->menu.color;
 		i++;
 	}
-	mlx_put_image_to_window(fdf->mlx_ptr, fdf->win_ptr, fdf->menu.backmenu_ptr,
-							fdf->width - 355, 20);
 	return (0);
 }
 
 int			ft_print_menu(t_env *fdf)
 {
-	if (ft_backmenu(fdf) == -1)
-		return (-1);
+	if (fdf->menu.backmenu_ptr == NULL)
+		if (ft_backmenu(fdf) == -1)
+			return (-1);
+	mlx_put_image_to_window(fdf->mlx_ptr, fdf->win_ptr, fdf->menu.backmenu_ptr,
+								fdf->width - MENU_WIDTH - 15, 20);
 	mlx_string_put(fdf->mlx_ptr, fdf->win_ptr, fdf->width - 350, 20, BLACK,
 					"---------------------------------");
 	mlx_string_put(fdf->mlx_ptr, fdf->win_ptr, fdf->width - 350, 40, BLACK,

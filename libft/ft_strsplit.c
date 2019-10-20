@@ -6,7 +6,7 @@
 /*   By: jcanteau <jcanteau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/08 14:32:36 by jcanteau          #+#    #+#             */
-/*   Updated: 2019/10/18 15:06:39 by jcanteau         ###   ########.fr       */
+/*   Updated: 2019/10/20 15:56:39 by jcanteau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,12 @@ char		**ft_strsplit(char const *s, char c)
 		return (NULL);
 	i = 0;
 	nb_word = ft_split_count(s, ' ');
-	if ((tab = malloc(sizeof(char *) * (nb_word + 1))) == NULL)
+	if ((tab = (char **)malloc(sizeof(char *) * (nb_word + 1))) == NULL)
 		return (NULL);
 	while (nb_word--)
 	{
+		if (*s == '\0')
+			return (NULL);
 		while (*s && *s == c)
 			s++;
 		len = ft_word_len(s);

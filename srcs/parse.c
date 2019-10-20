@@ -6,7 +6,7 @@
 /*   By: jcanteau <jcanteau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/06 14:41:21 by jcanteau          #+#    #+#             */
-/*   Updated: 2019/10/18 18:01:41 by jcanteau         ###   ########.fr       */
+/*   Updated: 2019/10/20 15:58:49 by jcanteau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,9 +46,9 @@ int					ft_fill_map(t_env *fdf, int fd)
 
 	while (get_next_line(fd, &line) == 1)
 	{
-		split = NULL;
 		if ((split = ft_strsplit(line, ' ')) == NULL)
 			return (-1);
+		free(line);
 		fdf->map.c = 0;
 		while (fdf->map.c < fdf->map.nbcol)
 		{
@@ -79,6 +79,7 @@ int					ft_count_lines_columns(t_env *fdf, char *filename)
 	if ((get_next_line(fd, &line)) <= 0)
 		return (-1);
 	fdf->map.nbcol = ft_split_count(line, ' ');
+	free(line);
 	fdf->map.nbl++;
 	while (get_next_line(fd, &line) > 0)
 	{

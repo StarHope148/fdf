@@ -6,7 +6,7 @@
 #    By: jcanteau <jcanteau@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/02 11:22:48 by jcanteau          #+#    #+#              #
-#    Updated: 2019/10/18 15:37:55 by jcanteau         ###   ########.fr        #
+#    Updated: 2019/10/20 14:59:16 by jcanteau         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,7 @@ SRC_NAME += projection.c
 SRC_NAME += color.c
 SRC_NAME += menu.c
 SRC_NAME += init_tool.c
-SRC_NAME += map_tool.c
+SRC_NAME += parse_tool.c
 SRC_NAME += controls.c
 
 OBJ_NAME = $(SRC_NAME:.c=.o)

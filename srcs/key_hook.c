@@ -6,7 +6,7 @@
 /*   By: jcanteau <jcanteau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/08 15:41:09 by jcanteau          #+#    #+#             */
-/*   Updated: 2019/10/18 20:59:56 by jcanteau         ###   ########.fr       */
+/*   Updated: 2019/10/21 16:20:03 by jcanteau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ void	ft_switch_projection(t_env *fdf)
 	{
 		fdf->projection_mod = ISO;
 		fdf->cx = CX_O;
-		fdf->cy = CY_O; 
+		fdf->cy = CY_O;
 	}
 	else
 	{

@@ -6,7 +6,7 @@
 /*   By: jcanteau <jcanteau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/09 18:20:17 by jcanteau          #+#    #+#             */
-/*   Updated: 2019/10/20 14:52:01 by jcanteau         ###   ########.fr       */
+/*   Updated: 2019/10/21 16:23:16 by jcanteau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int		ft_print(t_env *fdf)
 {
- 	if (fdf->img_ptr == NULL)
+	if (fdf->img_ptr == NULL)
 	{
 		fdf->img_ptr = mlx_new_image(fdf->mlx_ptr, fdf->width, fdf->height);
 		if (fdf->img_ptr == NULL)
@@ -25,7 +25,6 @@ int		ft_print(t_env *fdf)
 			return (-1);
 	}
 	ft_bzero(fdf->data, fdf->width * fdf->height * 4);
-	//mlx_clear_window(fdf->mlx_ptr, fdf->win_ptr);
 	if (ft_link_points(fdf) == -1)
 		return (-1);
 	mlx_put_image_to_window(fdf->mlx_ptr, fdf->win_ptr, fdf->img_ptr, 0, 0);

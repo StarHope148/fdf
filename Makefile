@@ -6,7 +6,7 @@
 #    By: jcanteau <jcanteau@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/02 11:22:48 by jcanteau          #+#    #+#              #
-#    Updated: 2019/10/20 14:59:16 by jcanteau         ###   ########.fr        #
+#    Updated: 2019/10/21 16:23:47 by jcanteau         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -45,8 +45,6 @@ OBJ = $(addprefix $(OBJ_PATH), $(OBJ_NAME))
 HEAD = $(addprefix $(INC_PATH), $(INC_NAME))
 LIB = $(addprefix $(LIB_PATH), $(LIB_NAME))
 
-#MLXINC = -I /usr/local/include
-#MLXLIB = -L /usr/local/lib -lmlx
 FRAMEWORK = -framework OpenGL -framework AppKit
 MLXFLAG = -I /usr/local/include -L /usr/local/lib -lmlx
 CFLAGS = -Wall -Wextra -Werror

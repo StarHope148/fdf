@@ -6,7 +6,7 @@
 /*   By: jcanteau <jcanteau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/04 14:26:35 by jcanteau          #+#    #+#             */
-/*   Updated: 2019/10/18 18:55:37 by jcanteau         ###   ########.fr       */
+/*   Updated: 2019/10/21 16:52:31 by jcanteau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,7 +117,6 @@ typedef struct		s_env
 	int				e2;
 }					t_env;
 
-int					ft_error(void);
 int					ft_usage(void);
 int					ft_fdf_init(char *av);
 int					ft_check_file(char *av);

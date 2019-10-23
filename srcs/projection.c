@@ -6,7 +6,7 @@
 /*   By: jcanteau <jcanteau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/10 17:19:32 by jcanteau          #+#    #+#             */
-/*   Updated: 2019/10/18 20:19:21 by jcanteau         ###   ########.fr       */
+/*   Updated: 2019/10/23 14:53:25 by jcanteau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ void		ft_iso(t_env *fdf)
 	}
 }
 
-void		ft_ortho(t_env *fdf)
+void		ft_para(t_env *fdf)
 {
 	int		r;
 	int		c;

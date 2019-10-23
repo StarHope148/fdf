@@ -6,7 +6,7 @@
 /*   By: jcanteau <jcanteau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/09 18:20:17 by jcanteau          #+#    #+#             */
-/*   Updated: 2019/10/21 16:23:16 by jcanteau         ###   ########.fr       */
+/*   Updated: 2019/10/23 14:53:22 by jcanteau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ int		ft_link_points(t_env *fdf)
 	if (fdf->projection_mod == 0)
 		ft_iso(fdf);
 	else
-		ft_ortho(fdf);
+		ft_para(fdf);
 	r = 0;
 	while (r < fdf->map.nbl)
 	{

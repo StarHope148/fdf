@@ -6,7 +6,7 @@
 /*   By: jcanteau <jcanteau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/04 14:53:23 by jcanteau          #+#    #+#             */
-/*   Updated: 2019/10/21 17:05:17 by jcanteau         ###   ########.fr       */
+/*   Updated: 2019/10/23 14:39:54 by jcanteau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int		ft_error(int error)
 	else if (error == -3)
 		ft_putendl_fd("file format is invalide", 2);
 	else if (error == -4)
-		ft_putendl_fd("file not found and/or open() failed", 2);
+		ft_putendl_fd("file not found or open() failed", 2);
 	else
 		ft_putendl_fd("an error occured", 2);
 	return (EXIT_FAILURE);

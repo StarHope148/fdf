@@ -6,7 +6,7 @@
 /*   By: jcanteau <jcanteau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/08 15:41:09 by jcanteau          #+#    #+#             */
-/*   Updated: 2019/10/21 16:20:03 by jcanteau         ###   ########.fr       */
+/*   Updated: 2019/10/23 14:54:01 by jcanteau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void	ft_switch_color(t_env *fdf)
 
 void	ft_switch_projection(t_env *fdf)
 {
-	if (fdf->projection_mod == ORTHO)
+	if (fdf->projection_mod == PARA)
 	{
 		fdf->projection_mod = ISO;
 		fdf->cx = CX_O;
@@ -51,7 +51,7 @@ void	ft_switch_projection(t_env *fdf)
 	}
 	else
 	{
-		fdf->projection_mod = ORTHO;
+		fdf->projection_mod = PARA;
 		fdf->cx = CX_O;
 		fdf->cy = CY_O;
 	}

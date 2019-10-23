@@ -6,7 +6,7 @@
 /*   By: jcanteau <jcanteau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/16 16:52:55 by jcanteau          #+#    #+#             */
-/*   Updated: 2019/10/21 16:37:06 by jcanteau         ###   ########.fr       */
+/*   Updated: 2019/10/23 14:53:45 by jcanteau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	ft_move(int keycode, t_env *fdf)
 		else if (keycode == DOWN_ARROW)
 			fdf->cy += MOVE_SPEED;
 	}
-	else if (fdf->projection_mod == ORTHO)
+	else if (fdf->projection_mod == PARA)
 	{
 		if (keycode == LEFT_ARROW)
 			fdf->cx -= MOVE_SPEED / 2;

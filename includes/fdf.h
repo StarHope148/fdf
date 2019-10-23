@@ -6,7 +6,7 @@
 /*   By: jcanteau <jcanteau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/04 14:26:35 by jcanteau          #+#    #+#             */
-/*   Updated: 2019/10/21 16:52:31 by jcanteau         ###   ########.fr       */
+/*   Updated: 2019/10/23 14:53:37 by jcanteau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ typedef enum		e_colormod
 
 typedef enum		e_projection
 {
-	ORTHO,
+	PARA,
 	ISO
 }					t_projection;
 
@@ -125,7 +125,7 @@ int					ft_create_map(t_env *fdf, char *filename);
 int					ft_key_hook(int keycode, t_env *fdf);
 void				bresenham(t_env *fdf, int color);
 int					ft_link_points(t_env *fdf);
-void				ft_ortho(t_env *fdf);
+void				ft_para(t_env *fdf);
 int					ft_print(t_env *fdf);
 void				ft_iso(t_env *fdf);
 int					ft_color_fill(t_env *fdf, char *split, int x, int y);

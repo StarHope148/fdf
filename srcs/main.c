@@ -6,11 +6,15 @@
 /*   By: jcanteau <jcanteau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/04 14:53:23 by jcanteau          #+#    #+#             */
-/*   Updated: 2019/10/23 14:39:54 by jcanteau         ###   ########.fr       */
+/*   Updated: 2019/10/23 18:32:24 by jcanteau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fdf.h"
+/* 
+**	BETTER WATCH FOR LEAKS
+*/
+//__attribute__((destructor)) void no_end(void);
 
 int		ft_error(int error)
 {
@@ -43,3 +47,8 @@ int		main(int ac, char **av)
 		return (ft_error(error));
 	return (0);
 }
+/*
+void	no_end(void)
+{
+	while (1);
+}*/

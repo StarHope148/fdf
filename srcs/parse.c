@@ -6,7 +6,7 @@
 /*   By: jcanteau <jcanteau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/06 14:41:21 by jcanteau          #+#    #+#             */
-/*   Updated: 2019/10/21 16:21:57 by jcanteau         ###   ########.fr       */
+/*   Updated: 2019/10/27 21:16:14 by jcanteau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,20 @@ void				ft_calc_min_max_z(t_env *fdf)
 		fdf->map.max = fdf->map.tab[fdf->map.r][fdf->map.c].z;
 }
 
+int					ft_retrieve_values(t_env *fdf, char **split)
+{
+	fdf->map.tab[fdf->map.r][fdf->map.c].x = fdf->map.c;
+	fdf->map.tab[fdf->map.r][fdf->map.c].y = fdf->map.r;
+	fdf->map.tab[fdf->map.r][fdf->map.c].z = ft_atoi(split[fdf->map.c]);
+	if (fdf->map.tab[fdf->map.r][fdf->map.c].z > SHRT_MAX ||
+		fdf->map.tab[fdf->map.r][fdf->map.c].z < SHRT_MIN)
+		return (-1);
+	if (ft_color_fill(fdf, split[fdf->map.c], fdf->map.c, fdf->map.r) == -1)
+		return (-1);
+	ft_calc_min_max_z(fdf);
+	return (0);
+}
+
 int					ft_fill_map(t_env *fdf, int fd)
 {
 	char		*line;
@@ -52,13 +66,8 @@ int					ft_fill_map(t_env *fdf, int fd)
 		fdf->map.c = 0;
 		while (fdf->map.c < fdf->map.nbcol)
 		{
-			fdf->map.tab[fdf->map.r][fdf->map.c].x = fdf->map.c;
-			fdf->map.tab[fdf->map.r][fdf->map.c].y = fdf->map.r;
-			fdf->map.tab[fdf->map.r][fdf->map.c].z = ft_atoi(split[fdf->map.c]);
-			if (ft_color_fill(fdf, split[fdf->map.c], fdf->map.c, fdf->map.r)
-					== -1)
+			if (ft_retrieve_values(fdf, split) == -1)
 				return (-1);
-			ft_calc_min_max_z(fdf);
 			free(split[fdf->map.c]);
 			fdf->map.c++;
 		}

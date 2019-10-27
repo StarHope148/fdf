@@ -6,7 +6,7 @@
 /*   By: jcanteau <jcanteau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/04 16:12:23 by jcanteau          #+#    #+#             */
-/*   Updated: 2019/10/21 17:03:54 by jcanteau         ###   ########.fr       */
+/*   Updated: 2019/10/27 21:20:51 by jcanteau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,10 @@ int		ft_check_file(char *filename)
 	while (get_next_line(fd, &line) > 0)
 	{
 		if (ft_split_count(line, ' ') != len)
+		{
+			free(line);
 			return (-3);
+		}
 		free(line);
 	}
 	if ((close(fd) == -1))

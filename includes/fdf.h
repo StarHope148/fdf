@@ -6,7 +6,7 @@
 /*   By: jcanteau <jcanteau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/04 14:26:35 by jcanteau          #+#    #+#             */
-/*   Updated: 2019/10/23 14:53:37 by jcanteau         ###   ########.fr       */
+/*   Updated: 2019/10/27 19:43:22 by jcanteau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -141,7 +141,6 @@ void				ft_init_segment_drawing_coordinate(t_env *fdf);
 void				ft_print_color_setup(t_env *fdf);
 void				ft_move(int keycode, t_env *fdf);
 void				ft_zoom(int keycode, t_env *fdf);
-void				ft_distance(int keycode, t_env *fdf);
 void				ft_elevation(int keycode, t_env *fdf);
 void				ft_rotate(int keycode, t_env *fdf);
 

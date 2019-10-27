@@ -6,7 +6,7 @@
 /*   By: jcanteau <jcanteau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/16 16:52:55 by jcanteau          #+#    #+#             */
-/*   Updated: 2019/10/23 14:53:45 by jcanteau         ###   ########.fr       */
+/*   Updated: 2019/10/27 19:42:07 by jcanteau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,13 +46,13 @@ void	ft_zoom(int keycode, t_env *fdf)
 		fdf->fl *= 0.952380;
 }
 
-void	ft_distance(int keycode, t_env *fdf)
+/* void	ft_distance(int keycode, t_env *fdf)
 {
 	if (keycode == FIVE_NUM_PAD)
 		fdf->dist += 1;
 	else if (keycode == FOUR_NUM_PAD)
 		fdf->dist -= 1;
-}
+} */
 
 void	ft_elevation(int keycode, t_env *fdf)
 {

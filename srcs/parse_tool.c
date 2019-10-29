@@ -6,11 +6,30 @@
 /*   By: jcanteau <jcanteau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/16 15:32:45 by jcanteau          #+#    #+#             */
-/*   Updated: 2019/10/20 14:59:30 by jcanteau         ###   ########.fr       */
+/*   Updated: 2019/10/29 14:37:03 by jcanteau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fdf.h"
+
+t_vertex		**ft_malloc_tab(t_env *fdf)
+{
+	t_vertex	**vtab;
+	int			i;
+
+	if ((vtab = (t_vertex **)ft_memalloc(sizeof(t_vertex *)
+			* fdf->map.nbl)) == NULL)
+		return (NULL);
+	i = 0;
+	while (i < fdf->map.nbl)
+	{
+		if ((vtab[i] = (t_vertex *)ft_memalloc(sizeof(t_vertex)
+				* fdf->map.nbcol)) == NULL)
+			return (NULL);
+		i++;
+	}
+	return (vtab);
+}
 
 static int		ft_ishex(char c)
 {
@@ -59,4 +78,18 @@ int				ft_color_fill(t_env *fdf, char *split, int x, int y)
 		fdf->map.tab[y][x].defcolor = WHITE;
 	}
 	return (0);
+}
+
+int				ft_parsing_fail(t_env *fdf)
+{
+	int		r;
+
+	r = 0;
+	while (r < fdf->map.nbl)
+	{
+		free(fdf->map.tab[r]);
+		r++;
+	}
+	free(fdf->map.tab);
+	return (-6);
 }

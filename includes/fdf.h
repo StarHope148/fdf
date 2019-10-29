@@ -6,7 +6,7 @@
 /*   By: jcanteau <jcanteau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/04 14:26:35 by jcanteau          #+#    #+#             */
-/*   Updated: 2019/10/27 21:14:06 by jcanteau         ###   ########.fr       */
+/*   Updated: 2019/10/29 14:18:59 by jcanteau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,6 +102,7 @@ typedef struct		s_env
 	int				bpp;
 	int				size_l;
 	int				endian;
+	int				error;
 	int				cx;
 	int				cy;
 	double			fl;
@@ -144,5 +145,7 @@ void				ft_move(int keycode, t_env *fdf);
 void				ft_zoom(int keycode, t_env *fdf);
 void				ft_elevation(int keycode, t_env *fdf);
 void				ft_rotate(int keycode, t_env *fdf);
+t_vertex			**ft_malloc_tab(t_env *fdf);
+int					ft_parsing_fail(t_env *fdf);
 
 #endif

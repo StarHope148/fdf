@@ -6,7 +6,7 @@
 /*   By: jcanteau <jcanteau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/08 15:41:09 by jcanteau          #+#    #+#             */
-/*   Updated: 2019/10/27 20:59:20 by jcanteau         ###   ########.fr       */
+/*   Updated: 2019/10/29 13:31:51 by jcanteau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@ void	ft_exit(t_env *fdf)
 	mlx_destroy_image(fdf->mlx_ptr, fdf->menu.backmenu_ptr);
 	mlx_destroy_image(fdf->mlx_ptr, fdf->img_ptr);
 	mlx_destroy_window(fdf->mlx_ptr, fdf->win_ptr);
-	//free(fdf->mlx_ptr);          //<---- LEAKS, you shouldn't free mlx_ptr
 	exit(EXIT_SUCCESS);
 }
 

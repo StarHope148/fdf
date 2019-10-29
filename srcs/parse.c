@@ -6,30 +6,11 @@
 /*   By: jcanteau <jcanteau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/06 14:41:21 by jcanteau          #+#    #+#             */
-/*   Updated: 2019/10/27 21:16:14 by jcanteau         ###   ########.fr       */
+/*   Updated: 2019/10/29 14:36:55 by jcanteau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fdf.h"
-
-static t_vertex		**ft_malloc_tab(t_env *fdf)
-{
-	t_vertex	**vtab;
-	int			i;
-
-	if ((vtab = (t_vertex **)ft_memalloc(sizeof(t_vertex *)
-			* fdf->map.nbl)) == NULL)
-		return (NULL);
-	i = 0;
-	while (i < fdf->map.nbl)
-	{
-		if ((vtab[i] = (t_vertex *)ft_memalloc(sizeof(t_vertex)
-				* fdf->map.nbcol)) == NULL)
-			return (NULL);
-		i++;
-	}
-	return (vtab);
-}
 
 void				ft_calc_min_max_z(t_env *fdf)
 {
@@ -67,7 +48,12 @@ int					ft_fill_map(t_env *fdf, int fd)
 		while (fdf->map.c < fdf->map.nbcol)
 		{
 			if (ft_retrieve_values(fdf, split) == -1)
-				return (-1);
+			{
+				while (fdf->map.c < fdf->map.nbcol)
+					free(split[fdf->map.c++]);
+				free(split);
+				return (ft_parsing_fail(fdf));
+			}
 			free(split[fdf->map.c]);
 			fdf->map.c++;
 		}
@@ -103,6 +89,7 @@ int					ft_count_lines_columns(t_env *fdf, char *filename)
 int					ft_create_map(t_env *fdf, char *filename)
 {
 	int			fd;
+	int			error;
 
 	if ((ft_count_lines_columns(fdf, filename)) == -1)
 		return (-1);
@@ -111,8 +98,8 @@ int					ft_create_map(t_env *fdf, char *filename)
 	fd = 0;
 	if ((fd = open(filename, O_RDONLY)) == -1)
 		return (-1);
-	if ((ft_fill_map(fdf, fd)) == -1)
-		return (-1);
+	if ((error = ft_fill_map(fdf, fd)) < 0)
+		return (error);
 	if (fdf->map.r != fdf->map.nbl)
 		return (-1);
 	if ((close(fd)) == -1)

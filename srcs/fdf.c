@@ -6,7 +6,7 @@
 /*   By: jcanteau <jcanteau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/04 15:04:58 by jcanteau          #+#    #+#             */
-/*   Updated: 2019/10/18 17:44:32 by jcanteau         ###   ########.fr       */
+/*   Updated: 2019/10/29 14:28:22 by jcanteau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ void		ft_init_struct(t_env *fdf)
 	fdf->bpp = 0;
 	fdf->size_l = 0;
 	fdf->endian = 0;
+	fdf->error = 0;
 	ft_init_map(fdf);
 	ft_init_display(fdf);
 	ft_init_menu(fdf);
@@ -58,10 +59,11 @@ void		ft_choose_focal_lenght(t_env *fdf)
 int			ft_fdf_init(char *filename)
 {
 	t_env		fdf;
+	int			error;
 
 	ft_init_struct(&fdf);
-	if (ft_create_map(&fdf, filename) == -1)
-		return (-1);
+	if ((error = ft_create_map(&fdf, filename)) < 0)
+		return (error);
 	ft_choose_focal_lenght(&fdf);
 	if (ft_mlx(&fdf) == -1)
 		return (-1);

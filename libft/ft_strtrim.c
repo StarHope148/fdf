@@ -29,7 +29,7 @@ char	*ft_strtrim(char const *s)
 	if (s[start] == '\0')
 		return (ft_strdup(""));
 	end--;
-	while (s[end] == ' ' || s[end] == '\n' || s[end] == '\t' || s == '\0')
+	while (s[end] == ' ' || s[end] == '\n' || s[end] == '\t' || s[end] == '\0')
 		end--;
 	if (start == 0 && end == ft_strlen((char *)s))
 		return ((char *)s);

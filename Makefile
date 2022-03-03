@@ -85,6 +85,10 @@ norm:
 
 ubuntu: $(OBJ)
 	make -C $(LIB_PATH)
-	$(CC) $(CFLAGS) $(MLXFLAG) $(OBJ) $(LIB) -o $(NAME) -lmlx -lXext -lX11 -lm
+	$(CC) $(CFLAGS) $(OBJ) $(LIB) -o $(NAME) libmlx.a -L/usr/lib -Imlx -lXext -lX11 -lm
+#	$(CC) $(CFLAGS) $(MLXFLAG) $(OBJ) $(LIB) -o $(NAME) -lmlx -lXext -lX11 -lm
+
+install_mlx:
+	sudo apt-get update && sudo apt-get install xorg libxext-dev zlib1g-dev libbsd-dev	
 
 .PHONY: clean fclean re all debug debug_clean norm ubuntu

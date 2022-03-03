@@ -65,9 +65,9 @@ int			ft_print_menu(t_env *fdf)
 					"| SWITCH PROJECTION         [0] |");
 	mlx_string_put(fdf->mlx_ptr, fdf->win_ptr, fdf->width - 350, 140, BLACK,
 					"| ROTATE                [9]/[6] |");
+	//mlx_string_put(fdf->mlx_ptr, fdf->win_ptr, fdf->width - 350, 160, BLACK,
+	//				"|                               |");
 	mlx_string_put(fdf->mlx_ptr, fdf->win_ptr, fdf->width - 350, 160, BLACK,
-					"|                               |");
-	mlx_string_put(fdf->mlx_ptr, fdf->win_ptr, fdf->width - 350, 180, BLACK,
 					"---------------------------------");
 	return (0);
 }

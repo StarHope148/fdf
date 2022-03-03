@@ -22,7 +22,7 @@ int				ft_mlx(t_env *fdf)
 		return (-1);
 	if (ft_print(fdf) == -1)
 		return (-1);
-	mlx_hook(fdf->win_ptr, 2, 0, ft_key_hook, fdf);
+	mlx_hook(fdf->win_ptr, 2, (1L << 0), ft_key_hook, fdf);
 	mlx_loop(fdf->mlx_ptr);
 	return (0);
 }

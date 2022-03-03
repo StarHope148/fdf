@@ -28,6 +28,8 @@
 # define MOVE_SPEED 10
 # define MENU_WIDTH 340
 # define MENU_HEIGHT 180
+# define WIDTH 1200
+# define HEIGHT 800
 
 typedef enum		e_colormod
 {

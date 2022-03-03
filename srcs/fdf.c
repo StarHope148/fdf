@@ -18,8 +18,8 @@ void		ft_init_struct(t_env *fdf)
 	fdf->win_ptr = NULL;
 	fdf->img_ptr = NULL;
 	fdf->data = NULL;
-	fdf->width = 2000;
-	fdf->height = 1200;
+	fdf->width = WIDTH;
+	fdf->height = HEIGHT;
 	fdf->bpp = 0;
 	fdf->size_l = 0;
 	fdf->endian = 0;
